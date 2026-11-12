@@ -5,7 +5,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 ## Inputs every tool shares
 
 - `country` (optional, every tool except `send_feedback`): answers from another country's own Eric's New York site, in its language, currency and links. Use the values the tool's own `country` description lists: a country code such as `NL`, or the site's locale code such as `nl_NL`. Omit it for the current site's answer.
-- Paging (`limit`, `offset`): only `list_broadway_shows` and `list_pass_picker_attractions`. `limit` is 1-100 (default 10 for shows, 20 for attractions). The result carries `total`, and `nextOffset` when more remain: pass it as `offset` for the next page.
+- Paging (`limit`, `offset`): only `list_broadway_shows` and `list_pass_picker_attractions`. `limit` is 1-100 (default 10 for shows, 20 for attractions). The result carries `total`, and `nextOffset` when more remain: send that value as `offset` for the next page.
 
 ## site_info
 - Inputs: `country` only.

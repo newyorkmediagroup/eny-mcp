@@ -47,7 +47,7 @@ Most tools take an optional `country` for another country's site, language and c
 
 ## Paging
 
-`list_broadway_shows` and `list_pass_picker_attractions` return a page; pass `nextOffset` as `offset` for the next one. The other lists take only a `limit`.
+`list_broadway_shows` and `list_pass_picker_attractions` return a page; for the next one, send the `nextOffset` value as `offset`. The other lists take only a `limit`.
 
 ## Walking routes and feedback
 
