@@ -37,7 +37,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## calculate_transfer
 - Inputs: `persons` (1-50), `departure` and `destination` (ids from `list_transfer_options`), all required.
-- Returns every transfer option with `amount` and `currency` (US dollars). The amount is for the whole group, not per person.
+- Returns `modes`, each with `name`, `notes`, `amount`, `currency` (US dollars), `basis` (`per_group`) and `bookingUrl`. The amount is for the whole group, not per person.
 - An option marked `unavailable` has no price right now.
 
 ## list_trips
@@ -46,7 +46,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## get_trip
 - Inputs: `handle` from `list_trips` (required).
-- Returns one itinerary in full, day by day.
+- Returns one itinerary: `title`, `intro`, `url` and `config`, where `config.resources` are the days and `config.events` the steps (`text`, `resource` = day id). Dates inside `events` are placeholders.
 
 ## list_broadway_shows
 - Inputs: `query` (optional show name filter), `limit`, `offset`.
@@ -55,7 +55,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## get_performance_availability
 - Inputs: `show_id` from `list_broadway_shows` (a string) and `date` as YYYY-MM-DD, not before today (both required).
-- Returns that date's performances with time, price and tickets available, in the same currency as `list_broadway_shows`.
+- Returns that date's performances: `date_label` (date and time), `description` (the seating area), `price` and `amount`, `currency`, `basis` and `max_quantity` (the most tickets one booking takes), in the same currency as `list_broadway_shows`. It does not return a count of tickets left.
 
 ## nearest_subway
 - Inputs: `place` (the name of one of the guide's places), or `latitude` and `longitude` together (inside New York). If both are given, `place` wins.

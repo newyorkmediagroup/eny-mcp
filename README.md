@@ -18,7 +18,22 @@ With the connector, Claude can look things up in the guide for you:
 - Anything else in the guide, through site search
 - A short note to Eric's New York, only when you ask Claude to send one
 
-The skills in this plugin tell Claude which tool to use for which question, how to present the guide's attraction pass recommendation next to the price of separate tickets, to name and link the page every answer came from, to find subway stops and plan around the weather, and never to invent a price or availability.
+The plugin adds fourteen skills, one for each thing a traveller asks:
+
+- `choose-the-right-tool`: which tool answers which question
+- `weather-and-rain-plan`: the forecast, and indoor places when rain is likely
+- `nearest-subway-stop`: the nearest stops to a place, with lines and step-free access
+- `places-to-visit-eat-shop`: places by name, category or distance from a landmark
+- `broadway-shows-and-seats`: shows on sale and the performances with seats on a date
+- `airport-transfers`: the options between an airport and the hotel, priced for the group
+- `whats-on-during-your-dates`: events on the traveller's dates
+- `plan-a-first-trip`: a day-by-day plan from the guide's itineraries
+- `walking-routes-in-the-app`: the names of the guided routes sold in the app
+- `attraction-pass-savings`: a pass recommendation next to the price of separate tickets
+- `another-countrys-prices`: answers from another country's Eric's New York site
+- `send-feedback`: a short note to Eric's New York, only when you ask for one
+- `cite-and-link-sources`: name and link the page every answer came from
+- `never-invent-prices-or-availability`: report only the prices and seats the connector returned
 
 ## What you can ask
 
