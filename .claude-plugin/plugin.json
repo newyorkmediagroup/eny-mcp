@@ -1,7 +1,7 @@
 {
   "name": "erics-new-york-mcp",
   "displayName": "Eric's New York",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "New York City trip planning from Eric's New York, a travel guide by a local: Broadway shows and seats, attraction pass comparisons, airport transfers, events, itineraries, places, nearest subway stops and the weather forecast, each answer linked to its source page.",
   "author": {
     "name": "New York Media Group B.V.",
@@ -9,6 +9,10 @@
   },
   "homepage": "https://ericsnewyork.com/connect/",
   "license": "LicenseRef-Proprietary",
-  "privacyPolicyUrl": "https://www.newyork.co.uk/privacy-policy/",
-  "icon": ".claude-plugin/icon.png"
+  "privacyPolicyUrl": "https://ericsnewyork.com/privacy",
+  "icon": ".claude-plugin/icon.png",
+  "repository": "https://github.com/newyorkmediagroup/eny-mcp",
+  "documentationUrl": "https://ericsnewyork.com/connect/",
+  "supportUrl": "https://ericsnewyork.com/privacy/#contact",
+  "termsOfServiceUrl": "https://ericsnewyork.com/terms"
 }
