@@ -4,7 +4,7 @@ Eric's New York is a remote MCP server. There is nothing to clone, build, instal
 
 - Server URL: `https://ericsnewyork.com/mcp`
 - Transport: streamable HTTP (POST only)
-- Authentication: none. No API key, token or sign-in.
+- Authentication: none. No sign-in.
 
 ## Steps
 
@@ -21,7 +21,7 @@ Eric's New York is a remote MCP server. There is nothing to clone, build, instal
 }
 ```
 
-   Some clients name the transport key or the URL field differently (for example `httpUrl` in Gemini CLI, `streamableHttp` in Cline). Use the client's documented field names for a streamable HTTP server.
+   Some clients name the transport field or the URL field differently (for example `httpUrl` in Gemini CLI, `streamableHttp` in Cline). Use the client's documented field names for a streamable HTTP server.
 
 2. Restart or reload the client if it does not pick up the server.
 
@@ -31,7 +31,7 @@ Call the `site_info` tool with no arguments. A working connection returns a site
 
 ## What not to do
 
-- Do not invent API keys, tokens or headers. None are needed.
+- Do not add headers or sign-in details. None are needed.
 - Do not run local commands, `npm`, `npx`, `pip` or Docker for this server. There is no package.
 - Do not use a GET request or a browser to test it. The endpoint accepts POST only.
 - Do not book or pay for anything through it. The tools return information and links to pages on the site.

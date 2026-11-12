@@ -59,7 +59,7 @@ Nothing is booked, bought or paid for through the connector. The walking routes 
 
 ## Install
 
-The connector is a remote server at `https://ericsnewyork.com/mcp` (streamable HTTP, POST only). It needs no sign-in or key, and nothing is installed or run locally.
+The connector is a remote server at `https://ericsnewyork.com/mcp` (streamable HTTP, POST only). It needs no sign-in, and nothing is installed or run locally.
 
 | Client | How to add it |
 | --- | --- |
@@ -67,18 +67,14 @@ The connector is a remote server at `https://ericsnewyork.com/mcp` (streamable H
 | Claude Code (plugin) | `claude plugin install erics-new-york-mcp --marketplace newyorkmediagroup/eny-mcp`. One step; this also installs the skills. |
 | Claude Code (connector only) | `claude mcp add --transport http erics-new-york https://ericsnewyork.com/mcp` |
 | ChatGPT | Directory listing coming soon. Meanwhile, OpenAI documents custom MCP servers at chatgpt.com/plugins (plus button, Add custom MCP server, public HTTPS endpoint). OpenAI's help page states that custom MCP server connections are available for ChatGPT Business and Enterprise/Edu customers on ChatGPT web, and that account and workspace policies apply. See [OpenAI's help article](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt). |
-| Cursor | Add to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global): `{"mcpServers": {"erics-new-york": {"url": "https://ericsnewyork.com/mcp"}}}` |
-| Cline | In the MCP Servers panel open Remote Servers, enter the URL and choose Streamable HTTP. Or add to `cline_mcp_settings.json`: `{"mcpServers": {"erics-new-york": {"type": "streamableHttp", "url": "https://ericsnewyork.com/mcp"}}}` |
-| Gemini CLI | `gemini mcp add --transport http erics-new-york https://ericsnewyork.com/mcp` |
-| VS Code (GitHub Copilot) | `code --add-mcp '{"name":"erics-new-york","type":"http","url":"https://ericsnewyork.com/mcp"}'`, or run MCP: Add Server from the Command Palette and choose HTTP. |
-| Any other client | Add `https://ericsnewyork.com/mcp` as a remote MCP server (HTTP). |
+| Any other app | Add `https://ericsnewyork.com/mcp` as a remote MCP server (HTTP). Steps for other apps are on the [connect page](https://ericsnewyork.com/connect/). |
 
 To check it works, ask the assistant to call `site_info`. It should return the site name and domain.
 
 Files in this repository:
 
 - `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`: the Claude Code plugin and its marketplace.
-- `.mcp.json`: the connector entry in the format Claude Code and VS Code Copilot read from a project root. Other clients use their own file, shown above.
+- `.mcp.json`: the connector entry the plugin loads.
 - `llms-install.md`: install steps written for an AI agent.
 
 ## Your data
