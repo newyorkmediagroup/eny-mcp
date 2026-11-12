@@ -20,11 +20,11 @@ The skills in this plugin tell Claude which tool to use for which question, how 
 Examples for a first or second visit to New York. The connector answers from the guide and links to the page each answer came from.
 
 - "We are two adults and two children for five days. Is an attraction pass cheaper than separate tickets for the Empire State Building, the Statue of Liberty and the Top of the Rock?"
-- "How do we get from JFK to a hotel in Midtown, and what does it cost for a group of four?"
+- "How do we get from JFK to a hotel in Manhattan, and what does it cost for a group of four?"
 - "Which Broadway shows have seats on 14 March, and at what prices?"
 - "What is on in New York between 10 and 14 March?"
 - "Show me a ready-made itinerary for a first visit."
-- "Find Eric's guide to entry requirements for visiting the US, such as ESTA."
+- "Do I need an ESTA for New York?"
 - "Find Eric's guide to how the subway works."
 
 ## What it does not do
@@ -67,12 +67,17 @@ Prices returned by the connector are indicative, not a live quote. The final pri
 
 - How to connect: https://ericsnewyork.com/connect/
 - Privacy policy: https://www.newyork.co.uk/privacy-policy/
-- Claude Code install line: `/plugin install erics-new-york-mcp --marketplace newyorkmediagroup/eny-mcp`
 - Connector address: `https://ericsnewyork.com/mcp`
 
-## Support
+## Contact and community
 
-Support: SUPPORT_CONTACT_TO_BE_CONFIRMED
+Would you like advice from a person? Email eric@ericsnewyork.com.
+
+- Facebook: https://facebook.com/newyork
+- Instagram: https://instagram.com/visitnewyork
+- YouTube: https://www.youtube.com/@EricsNewYork
+- Eric's New York app for iPhone: https://apps.apple.com/app/erics-new-york/id1129643452
+- Eric's New York app for Android: https://play.google.com/store/apps/details?id=com.ericsnewyork
 
 ## Licence
 

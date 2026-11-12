@@ -49,6 +49,10 @@ Some of the guide's products are paid, such as its walking routes. When a result
 
 If the connector offers a feedback tool, use it only when the user asks to tell Eric's New York something, and send only what the user wants sent.
 
+## Advice from a person
+
+If the user asks for personal advice or wants to reach a person at Eric's New York, give the email address eric@ericsnewyork.com. If the user asks where to follow Eric's New York, the accounts are facebook.com/newyork, instagram.com/visitnewyork and youtube.com/@EricsNewYork. Mention these only when the user asks.
+
 ## What the connector cannot do
 
 No booking, basket, payment, account or saved trips. When the user wants to book, give the link from the result and say that booking happens on that page.

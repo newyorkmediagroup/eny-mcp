@@ -9,6 +9,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 ## search_site
 - Inputs: `query` (2-200 characters, required), `limit` (1-20, default 10).
 - Returns pages from the guide with their links. Search in the site's own language.
+- Search with a short phrase, not a single short word: "do I need an ESTA" finds the guide, "ESTA" alone can match unrelated pages.
 
 ## list_events
 - Inputs: `from` and `to` as YYYY-MM-DD (not before today; `to` defaults to 90 days after `from`), `category` (for example "Broadway", "Sports", "Nightlife"), `limit` (1-50, default 20).
