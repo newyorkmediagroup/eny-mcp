@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "erics-new-york": {
+      "type": "http",
+      "url": "https://ericsnewyork.com/mcp"
+    }
+  }
+}
