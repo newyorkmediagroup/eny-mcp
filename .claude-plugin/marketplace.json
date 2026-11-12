@@ -1,0 +1,15 @@
+{
+  "name": "eny-mcp",
+  "description": "Eric's New York, a New York City travel guide by a local, as a connector for AI assistants.",
+  "owner": {
+    "name": "New York Media Group B.V.",
+    "url": "https://ericsnewyork.com/"
+  },
+  "plugins": [
+    {
+      "name": "erics-new-york-mcp",
+      "source": "./",
+      "description": "Broadway seats, attraction pass comparisons, airport transfers, events and itineraries from Eric's New York."
+    }
+  ]
+}

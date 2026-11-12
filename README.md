@@ -15,9 +15,45 @@ With the connector, Claude can look things up in the guide for you:
 
 The skills in this plugin tell Claude which tool to use for which question, how to present the guide's attraction pass recommendation next to the price of separate tickets, to name and link the page every answer came from, and never to invent a price or availability.
 
+## What you can ask
+
+Examples for a first or second visit to New York. The connector answers from the guide and links to the page each answer came from.
+
+- "We are two adults and two children for five days. Is an attraction pass cheaper than separate tickets for the Empire State Building, the Statue of Liberty and the Top of the Rock?"
+- "How do we get from JFK to a hotel in Midtown, and what does it cost for a group of four?"
+- "Which Broadway shows have seats on 14 March, and at what prices?"
+- "What is on in New York between 10 and 14 March?"
+- "Show me a ready-made itinerary for a first visit."
+- "Find Eric's guide to entry requirements for visiting the US, such as ESTA."
+- "Find Eric's guide to how the subway works."
+
 ## What it does not do
 
 Nothing is booked, bought or paid for through the connector. Claude gives you the link to the page on our site where you can check today's price and book. No account, key or sign-in is needed.
+
+## Install
+
+The connector is a remote server at `https://ericsnewyork.com/mcp` (streamable HTTP, POST only). It needs no sign-in or key, and nothing is installed or run locally.
+
+| Client | How to add it |
+| --- | --- |
+| Claude (web and desktop) | Open the [prefilled link](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Eric%27s%20New%20York&connectorUrl=https%3A%2F%2Fericsnewyork.com%2Fmcp), or go to Customize > Connectors > Add custom connector and enter `https://ericsnewyork.com/mcp`. Directory listing coming soon. |
+| Claude Code (plugin) | `claude plugin marketplace add newyorkmediagroup/eny-mcp`, then `/plugin install erics-new-york-mcp@eny-mcp`. This also installs the skills. |
+| Claude Code (connector only) | `claude mcp add --transport http erics-new-york https://ericsnewyork.com/mcp` |
+| ChatGPT | Directory listing coming soon. Meanwhile, OpenAI documents custom MCP servers at chatgpt.com/plugins (plus button, Add custom MCP server, public HTTPS endpoint). OpenAI's help page states that custom MCP server connections are available for ChatGPT Business and Enterprise/Edu customers on ChatGPT web, and that account and workspace policies apply. See [OpenAI's help article](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt). |
+| Cursor | Add to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global): `{"mcpServers": {"erics-new-york": {"url": "https://ericsnewyork.com/mcp"}}}` |
+| Cline | In the MCP Servers panel open Remote Servers, enter the URL and choose Streamable HTTP. Or add to `cline_mcp_settings.json`: `{"mcpServers": {"erics-new-york": {"type": "streamableHttp", "url": "https://ericsnewyork.com/mcp"}}}` |
+| Gemini CLI | `gemini mcp add --transport http erics-new-york https://ericsnewyork.com/mcp` |
+| VS Code (GitHub Copilot) | `code --add-mcp '{"name":"erics-new-york","type":"http","url":"https://ericsnewyork.com/mcp"}'`, or run MCP: Add Server from the Command Palette and choose HTTP. |
+| Any other client | Add `https://ericsnewyork.com/mcp` as a remote MCP server (HTTP). |
+
+To check it works, ask the assistant to call `site_info`. It should return the site name and domain.
+
+Files in this repository:
+
+- `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`: the Claude Code plugin and its marketplace.
+- `.mcp.json`: the connector entry in the format Claude Code and VS Code Copilot read from a project root. Other clients use their own file, shown above.
+- `llms-install.md`: install steps written for an AI agent.
 
 ## Your data
 
@@ -31,7 +67,12 @@ Prices returned by the connector are indicative, not a live quote. The final pri
 
 - How to connect: https://ericsnewyork.com/connect/
 - Privacy policy: https://www.newyork.co.uk/privacy-policy/
+- Claude Code install line: `/plugin install erics-new-york-mcp --marketplace newyorkmediagroup/eny-mcp`
 - Connector address: `https://ericsnewyork.com/mcp`
+
+## Support
+
+Support: SUPPORT_CONTACT_TO_BE_CONFIRMED
 
 ## Licence
 
