@@ -18,6 +18,8 @@ If the traveller's country is not in the list, answer from this site and say so.
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "I am visiting from the Netherlands. What do the Broadway shows cost on the Dutch site?"
 - `list_broadway_shows` with `country: "NL"` and `limit: 2` returned The Lion King at 149.41 EUR per person, with a link on newyork.nl.
 - Present the price in euros with that link, as indicative.

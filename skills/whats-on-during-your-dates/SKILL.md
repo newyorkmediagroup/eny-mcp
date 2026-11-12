@@ -16,6 +16,8 @@ Ask for the dates if the traveller gave none, then report events only as returne
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "What is on between 10 and 14 December?"
 - `list_events` with `from: "2026-12-10"`, `to: "2026-12-14"` and `limit: 5` returned George Balanchine's The Nutcracker, 10 December, 19:00, David H Koch Theater, from 124 GBP per ticket; and New York Islanders vs. Calgary Flames at UBS Arena.
 - Present the events in date order with their links.

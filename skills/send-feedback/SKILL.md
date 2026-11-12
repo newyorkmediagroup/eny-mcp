@@ -17,6 +17,8 @@ description: Use when the traveller asks you to tell Eric's New York something, 
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Tell Eric's New York that the page about airport transfers is missing a train option."
 - `send_feedback` with `looking_for: "airport transfer options"`, `found: "partly"`, `note: "The airport transfers page is missing a train option."`, `page_or_tool: "calculate_transfer"` returned `{"received": true}`.
 - Say that a note was sent.

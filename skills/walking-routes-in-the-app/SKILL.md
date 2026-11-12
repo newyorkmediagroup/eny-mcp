@@ -16,6 +16,8 @@ Walking routes are a paid product sold only in the Eric's New York app. The conn
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Is there a guided walk around Central Park or Brooklyn Bridge?"
 - `list_walking_routes` returned 19 routes, including "Central Park" and "DUMBO - Brooklyn Bridge", and the `app` store links.
 - Name those two routes, say they are in the Eric's New York app, and give the two links.

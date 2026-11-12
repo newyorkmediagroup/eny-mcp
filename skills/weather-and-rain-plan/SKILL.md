@@ -18,6 +18,8 @@ Say when the forecast was fetched (`fetched_at`) if the conversation runs on.
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Will it rain on 13 November?"
 - `new_york_weather` with `date: "2026-11-13"` returned Friday, 46 F / 8 C, "Light Rain", `rain_chance` 100, and a `rain_plan` with `indoor_categories` "Museums" and "Theatres".
 - `search_places` with `category: "Museums"` and `limit: 3` returned 9/11 Museum, American Museum of Natural History and others.

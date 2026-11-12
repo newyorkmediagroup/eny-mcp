@@ -18,6 +18,8 @@ Report transfer options and prices only as the connector returned them.
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "How do we get from JFK to Manhattan, four of us?"
 - `list_transfer_options` returned JFK Airport (id 1) and Manhattan (id 3).
 - `calculate_transfer` with `persons: 4`, `departure: 1`, `destination: 3` returned Taxi at 98 USD for the group, JFK AirTrain and Metro at 47 USD, Shared Shuttle bus at 180 USD.

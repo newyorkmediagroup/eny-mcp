@@ -18,6 +18,8 @@ The tool does not find street addresses, and it has no `offset`.
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Suggest museums near the Top of the Rock."
 - `search_places` with `near: "Top of the Rock"`, `category: "Museums"` and `limit: 3` returned MoMA (nearest stop 5 Av/53 St), Museum of Broadway and SPYSCAPE.
 - Present each with its tip and link.

@@ -20,6 +20,8 @@ Report shows, prices and seats only as the connector returned them.
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Which seats are there for The Lion King on 10 December?"
 - `list_broadway_shows` with `limit: 3` returned The Lion King, `showId` "LIONKING3", Minskoff Theatre, `priceFrom` 129.15 GBP per person.
 - `get_performance_availability` with `show_id: "LIONKING3"` and `date: "2026-12-10"` returned the 19:00 performance with "Premiums" at 270.14 GBP and "Rear Orchestra" at 158.21 GBP.

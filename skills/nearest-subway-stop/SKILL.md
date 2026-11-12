@@ -19,6 +19,8 @@ Answer from the connector. Do not name subway lines, stops or walking times from
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "Which subway stop is nearest to the Empire State Building, and is it step-free?"
 - `nearest_subway` with `place: "Empire State Building"` returned 34 St - Herald Sq (lines B, F, D, M, R, Q, N, W), 184 metres, 3 minutes, `stepFree` true; then 28 St and 33 St, both not step-free.
 - Present the three stops, with the estimate caveat.

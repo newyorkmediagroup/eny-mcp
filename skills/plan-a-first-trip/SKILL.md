@@ -17,6 +17,8 @@ Build the plan from the guide's own itineraries, then add what is on and where t
 
 ## Example
 
+Figures below are from 12 Nov 2026 and only show the shape of an answer; always use what the tool returns now.
+
 "First visit, four days from 10 December. Where do we start?"
 - `list_trips` returned the handle `nyc4days`. `get_trip` with `handle: "nyc4days"` returned "Day 1": Day of arrival, Arrival at hotel, Go to Times Square, Dinner at John's Pizza.
 - `list_events` with `from: "2026-12-10"` and `to: "2026-12-14"` returned events by date; `search_places` with `category: "Museums"` returned places for a rainy day.
