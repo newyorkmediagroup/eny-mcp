@@ -9,11 +9,16 @@ With the connector, Claude can look things up in the guide for you:
 - Broadway shows that are on sale, and which performances have seats on a given date
 - Attraction passes: which attractions each pass covers, and how a pass compares with buying separate tickets for your party
 - Airport transfers: the options between the airports and your destination, with indicative prices for your group
-- Events in New York by date and category
+- Events in New York by date and category, with venue, performers and a from-price where the guide holds one
 - Ready-made trip itineraries
+- The nearest subway stops to a place, and places to visit, eat or shop
+- The National Weather Service forecast for New York, with indoor places to suggest when rain is likely
+- The names of the guided walking routes sold in the Eric's New York app
+- The same answers from another country's Eric's New York site, in its language and currency
 - Anything else in the guide, through site search
+- A short note to Eric's New York, only when you ask Claude to send one
 
-The skills in this plugin tell Claude which tool to use for which question, how to present the guide's attraction pass recommendation next to the price of separate tickets, to name and link the page every answer came from, and never to invent a price or availability.
+The skills in this plugin tell Claude which tool to use for which question, how to present the guide's attraction pass recommendation next to the price of separate tickets, to name and link the page every answer came from, to find subway stops and plan around the weather, and never to invent a price or availability.
 
 ## What you can ask
 
@@ -26,10 +31,16 @@ Examples for a first or second visit to New York. The connector answers from the
 - "Show me a ready-made itinerary for a first visit."
 - "Do I need an ESTA for New York?"
 - "Find Eric's guide to how the subway works."
+- "Which subway stop is nearest to the Empire State Building, and is it step-free?"
+- "Suggest museums near the Top of the Rock."
+- "What will the weather be in New York on 14 March, and what could we do if it rains?"
+- "Are there guided walking routes in New York?"
+- "I am visiting from the Netherlands. What do the Broadway shows cost on the Dutch site?"
+- "Tell Eric's New York that the page about airport transfers is missing a train option."
 
 ## What it does not do
 
-Nothing is booked, bought or paid for through the connector. Claude gives you the link to the page on our site where you can check today's price and book. No account, key or sign-in is needed.
+Nothing is booked, bought or paid for through the connector. The walking routes are a paid product of the Eric's New York app: Claude can name a route and point you to the app, but the route itself is only in the app. The one thing the connector writes is a short feedback note, and only when you ask Claude to send one. Claude gives you the link to the page on our site where you can check today's price and book. No account, key or sign-in is needed.
 
 ## Install
 
