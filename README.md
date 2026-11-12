@@ -38,7 +38,7 @@ The connector is a remote server at `https://ericsnewyork.com/mcp` (streamable H
 | Client | How to add it |
 | --- | --- |
 | Claude (web and desktop) | Open the [prefilled link](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Eric%27s%20New%20York&connectorUrl=https%3A%2F%2Fericsnewyork.com%2Fmcp), or go to Customize > Connectors > Add custom connector and enter `https://ericsnewyork.com/mcp`. Directory listing coming soon. |
-| Claude Code (plugin) | `claude plugin marketplace add newyorkmediagroup/eny-mcp`, then `/plugin install erics-new-york-mcp@eny-mcp`. This also installs the skills. |
+| Claude Code (plugin) | `claude plugin install erics-new-york-mcp --marketplace newyorkmediagroup/eny-mcp`. One step; this also installs the skills. |
 | Claude Code (connector only) | `claude mcp add --transport http erics-new-york https://ericsnewyork.com/mcp` |
 | ChatGPT | Directory listing coming soon. Meanwhile, OpenAI documents custom MCP servers at chatgpt.com/plugins (plus button, Add custom MCP server, public HTTPS endpoint). OpenAI's help page states that custom MCP server connections are available for ChatGPT Business and Enterprise/Edu customers on ChatGPT web, and that account and workspace policies apply. See [OpenAI's help article](https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt). |
 | Cursor | Add to `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global): `{"mcpServers": {"erics-new-york": {"url": "https://ericsnewyork.com/mcp"}}}` |
