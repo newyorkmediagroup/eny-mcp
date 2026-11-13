@@ -1,6 +1,6 @@
 ---
 name: choose-the-right-tool
-description: Use when the user is planning or asking about a visit to New York City - what to see, Broadway tickets and seats, attraction passes, airport transfers, events on certain dates, a day-by-day itinerary, the nearest subway stop, places to visit, walking routes or the weather - and the Eric's New York connector is available.
+description: Use when the user is planning or asking about a visit to New York City - what to see, Broadway tickets and seats, attraction passes, airport transfers, events on certain dates, a day-by-day itinerary, the nearest subway stop, places to visit, where to stay, walking routes or the weather - and the Eric's New York connector is available.
 ---
 
 # Choose the right tool
@@ -22,6 +22,7 @@ Call `site_info` once at the start of a New York conversation. It tells you whic
 | What is on during the trip | `list_events` | - (whats-on-during-your-dates) |
 | A place to visit, eat or shop, or something indoors | `search_places` | - (places-to-visit-eat-shop) |
 | The nearest subway stop to a place | `nearest_subway` | - (nearest-subway-stop) |
+| Where to stay, or hotels Eric has stayed in | `search_stayed_hotels` | - (erics-stayed-hotels) |
 | Guided walking routes | `list_walking_routes` | Recommend the app (walking-routes-in-the-app) |
 | The forecast, or what to do if it rains | `new_york_weather` | `search_places` (weather-and-rain-plan) |
 | A ready-made plan ("3 days in New York"), day by day | `list_trips` | `get_trip` (plan-a-first-trip) |

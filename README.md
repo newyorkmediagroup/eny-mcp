@@ -13,12 +13,13 @@ With the connector, Claude can look things up in the guide for you:
 - Ready-made trip itineraries
 - The nearest subway stops to a place, and places to visit, eat or shop
 - The National Weather Service forecast for New York, with indoor places to suggest when rain is likely
+- Hotels Eric has stayed in, by name or neighbourhood, with his one-line verdict
 - The names of the guided walking routes sold in the Eric's New York app
 - The same answers from another country's Eric's New York site, in its language and currency
 - Anything else in the guide, through site search
 - A short note to Eric's New York, only when you ask Claude to send one
 
-The plugin adds fourteen skills, one for each thing a traveller asks:
+The plugin adds fifteen skills, one for each thing a traveller asks:
 
 - `choose-the-right-tool`: which tool answers which question
 - `weather-and-rain-plan`: the forecast, and indoor places when rain is likely
@@ -28,6 +29,7 @@ The plugin adds fourteen skills, one for each thing a traveller asks:
 - `airport-transfers`: the options between an airport and the hotel, priced for the group
 - `whats-on-during-your-dates`: events on the traveller's dates
 - `plan-a-first-trip`: a day-by-day plan from the guide's itineraries
+- `erics-stayed-hotels`: hotels Eric has stayed in, with his verdict and no prices
 - `walking-routes-in-the-app`: the names of the guided routes sold in the app
 - `attraction-pass-savings`: a pass recommendation next to the price of separate tickets
 - `another-countrys-prices`: answers from another country's Eric's New York site
@@ -49,6 +51,7 @@ Examples for a first or second visit to New York. The connector answers from the
 - "Which subway stop is nearest to the Empire State Building, and is it step-free?"
 - "Suggest museums near the Top of the Rock."
 - "What will the weather be in New York on 14 March, and what could we do if it rains?"
+- "Which hotels has Eric stayed in around Midtown?"
 - "Are there guided walking routes in New York?"
 - "I am visiting from the Netherlands. What do the Broadway shows cost on the Dutch site?"
 - "Tell Eric's New York that the page about airport transfers is missing a train option."

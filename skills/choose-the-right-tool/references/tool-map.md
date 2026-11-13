@@ -67,6 +67,11 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 - Returns the guide's places with a short description, address, coordinates, the guide's tip, a ticket link where the guide sells one (no price), and the two nearest subway stops. Stops of the paid walking routes are not included.
 - An empty result carries a hint with the closest names. It does not turn a street address into coordinates.
 
+## search_stayed_hotels
+- Inputs: `query` (optional, part of a hotel name or neighbourhood, up to 100 characters; empty lists some), `limit` (1-20, default 5). No `offset`.
+- Returns `note`, `total` and `hotels`: each has `name` and `neighbourhood`, and `verdict` (English), `lastStay` and `link` where the list holds them.
+- Eric's own stayed-at list, not a full hotel search: no prices, availability or ratings. Links are partner links; the `note` says when Eric earns a commission.
+
 ## list_walking_routes
 - Inputs: `country` only.
 - Returns only the names of the guided walking routes sold in the Eric's New York app, and the `app` store links.
