@@ -51,7 +51,7 @@
       },
       "review": {
         "commerce": true,
-        "commerce_description": "The plugin takes no payment and has no cart or checkout. One tool, get_omny_card_info, tells the user whether our site sells the OMNY fare card, a physical card that we ship to the traveller, and gives the link to the page on our own domain where a purchase is completed. Other tools return informational links to pages on our own sites and, where the answer says so, to a partner's page (for example Broadway shows, attraction passes, airport transfers and hotels). The plugin does not sell digital products or services.",
+        "commerce_description": "The plugin takes no payment and has no cart or checkout. One tool, get_omny_card_info, tells the user whether our site sells the OMNY fare card, a physical card that we ship to the traveller, and gives the link to the page on our own domain where a purchase is completed. Other tools return links to pages on our own sites, where a visitor can also book Broadway tickets, attraction passes and airport transfers, and, where the answer says so, to a partner's page on which we may earn a commission (hotels, some events and tickets). One tool names walking routes that are sold in our mobile app and gives the app store links. No purchase is made, started or paid for in the chat.",
         "test_cases": {
           "positive": [
             {
@@ -74,7 +74,7 @@
             },
             {
               "description": "Day-by-day itinerary",
-              "prompt": "Plan a 3-day itinerary for a first visit to New York.",
+              "prompt": "Plan a 3-day itinerary for a first visit to New York from 4 to 6 May 2027.",
               "tools_triggered": "list_trips, get_trip",
               "expected_behavior": "Lists Eric's itineraries, opens the one closest to three days or says which length is nearest, and presents its days with a link to the source page."
             },

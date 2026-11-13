@@ -1,6 +1,6 @@
 {
   "airport-transfers": {"display_name": "Airport transfers", "short_description": "Compare ways from the airport to your hotel"},
-  "another-countrys-prices": {"display_name": "Another country's prices", "short_description": "Answers in your own currency and language"},
+  "another-countrys-prices": {"display_name": "Another country's prices", "short_description": "Answer from another country's site"},
   "attraction-pass-savings": {"display_name": "Attraction pass savings", "short_description": "Compare passes with separate tickets"},
   "broadway-shows-and-seats": {"display_name": "Broadway shows and seats", "short_description": "Find shows and seats for your date"},
   "choose-the-right-tool": {"display_name": "Choose the right tool", "short_description": "Pick the right lookup for a trip question"},

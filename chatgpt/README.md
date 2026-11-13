@@ -5,7 +5,7 @@ It reuses the skills in `../skills/` without editing them, plus one ChatGPT-only
 Python 3 standard library only.
 
 - Build + validate: `python3 chatgpt/build.py` -> `chatgpt/dist/erics-new-york-<version>.zip` (git-ignored)
-- Validate alone: `python3 chatgpt/validate.py <zip> [--submit]` (`--submit` also fails on owner-only items)
+- Validate alone: `python3 chatgpt/validate.py <zip> [--submit]` (`--submit` also fails on owner-only items). A pass means "ready for review except owner items": the validator enforces the 5+3 review test cases, although upload itself accepts partial lists (SUB:649)
 - Tests: `python3 -m unittest chatgpt/test_validate.py -v`
 
 Files: `plugin.json` and `mcp.json` (Agent Plugins format), `skill-meta.json` (feeds each skill's

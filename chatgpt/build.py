@@ -10,8 +10,6 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 DIST = HERE / "dist"
-MCP_URL = "https://ericsnewyork.com/mcp"
-MCP_VALUE = "erics-new-york"
 
 # (skill, exact old text, new text): each must match exactly once or the build fails.
 PATCHES = [(
@@ -26,7 +24,17 @@ def yaml_str(s):
     return json.dumps(s, ensure_ascii=False)  # a JSON string is a valid YAML double-quoted scalar
 
 
+def mcp_server():
+    """(name, url) of the one server in chatgpt/mcp.json, the single source for the skills' dependency."""
+    servers = json.loads((HERE / "mcp.json").read_text(encoding="utf-8"))["mcpServers"]
+    if len(servers) != 1:
+        sys.exit("build: mcp.json must declare exactly one server")
+    (name, cfg), = servers.items()
+    return name, cfg["url"]
+
+
 def openai_yaml(meta):
+    mcp_name, mcp_url = mcp_server()
     return (
         "interface:\n"
         f"  display_name: {yaml_str(meta['display_name'])}\n"
@@ -34,10 +42,10 @@ def openai_yaml(meta):
         "dependencies:\n"
         "  tools:\n"
         '    - type: "mcp"\n'
-        f"      value: {yaml_str(MCP_VALUE)}\n"
+        f"      value: {yaml_str(mcp_name)}\n"
         '      description: "Eric\'s New York guide for planning a New York City trip"\n'
         '      transport: "streamable_http"\n'
-        f"      url: {yaml_str(MCP_URL)}\n"
+        f"      url: {yaml_str(mcp_url)}\n"
     )
 
 
