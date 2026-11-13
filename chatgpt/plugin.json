@@ -1,0 +1,109 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "erics-new-york",
+  "version": "1.0.0",
+  "description": "New York City trip planning from Eric's New York, a travel guide by a local: Broadway shows and seats, attraction pass comparisons, airport transfers, events, itineraries, places, hotels Eric has stayed in, nearest subway stops and the weather forecast, each answer linked to its source page.",
+  "author": {
+    "name": "New York Media Group B.V.",
+    "email": "eric@ericsnewyork.com",
+    "url": "https://ericsnewyork.com/"
+  },
+  "homepage": "https://ericsnewyork.com/connect/",
+  "repository": "https://github.com/newyorkmediagroup/eny-mcp",
+  "license": "LicenseRef-Proprietary",
+  "keywords": [
+    "new-york",
+    "travel",
+    "trip-planning",
+    "broadway",
+    "attraction-passes",
+    "subway",
+    "itinerary",
+    "events"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Eric's New York",
+        "shortDescription": "Plan New York with a local",
+        "longDescription": "Eric's New York is a New York City travel guide by Eric, a local. It is for first- and second-time visitors. With this plugin, ChatGPT looks things up in the guide in the order a trip happens.\n\nBefore you go: a day-by-day itinerary; attraction passes compared with separate tickets for your group; which Broadway performances have seats on your date; events on your dates; hotels Eric has stayed in, with his verdict.\nArriving: airport transfer options; whether an OMNY fare card for the subway and buses can be sent to you before you travel.\nOn the day: places Eric recommends, the nearest subway stop to a sight, the weather forecast and a rain plan.\nWalking routes: ChatGPT can name Eric's routes. The routes themselves are in the Eric's New York app.\n\nHow it works: the plugin reads published information from Eric's New York. One tool, send_feedback, sends a short note to the publisher, and only when you ask. No sign-in is needed. Nothing is booked, bought or paid for in the chat: answers link to the page on our own site, or to a partner's page where the answer says so. Figures are indicative and shown in the stated currency. It covers New York City only. Answers can come from one of 16 country sites, in that country's language, currency and links.",
+        "developerName": "New York Media Group B.V.",
+        "category": "Travel",
+        "capabilities": [
+          "Plan a day-by-day itinerary",
+          "Compare attraction passes with separate tickets",
+          "Check Broadway seats for a date",
+          "Find the nearest subway stop",
+          "Weather forecast and a rain plan",
+          "Events on your dates"
+        ],
+        "websiteURL": "https://ericsnewyork.com/",
+        "supportURL": "https://ericsnewyork.com/support/",
+        "privacyPolicyURL": "https://ericsnewyork.com/privacy/",
+        "termsOfServiceURL": "https://ericsnewyork.com/terms/",
+        "defaultPrompt": [
+          "Plan a 3-day itinerary for a first visit to New York.",
+          "What is the nearest subway stop to the Museum of Natural History?",
+          "It will rain on Tuesday in New York. Suggest indoor places near Times Square."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "commerce": true,
+        "commerce_description": "The plugin takes no payment and has no cart or checkout. One tool, get_omny_card_info, tells the user whether our site sells the OMNY fare card, a physical card that we ship to the traveller, and gives the link to the page on our own domain where a purchase is completed. Other tools return informational links to pages on our own sites and, where the answer says so, to a partner's page (for example Broadway shows, attraction passes, airport transfers and hotels). The plugin does not sell digital products or services.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Compare an attraction pass with separate tickets for a family",
+              "prompt": "We are 2 adults and 2 children and want the Empire State Building, the Statue of Liberty and Top of the Rock. Is an attraction pass cheaper than separate tickets?",
+              "tools_triggered": "list_pass_picker_attractions, calculate_pass_prices",
+              "expected_behavior": "Finds the three attractions in the list, prices the group of 2 adults and 2 children, and says whether a pass or separate tickets cost less, using the amounts returned, with the currency and a note that the figures are indicative."
+            },
+            {
+              "description": "Broadway seats for a date",
+              "prompt": "Which seats are there for The Lion King next Saturday evening?",
+              "tools_triggered": "list_broadway_shows, get_performance_availability",
+              "expected_behavior": "Finds The Lion King, checks the date next Saturday, and lists the performances and seat types that the tool returns, with prices in the stated currency and a link to the page. Says so if there are none that evening."
+            },
+            {
+              "description": "Nearest subway stop",
+              "prompt": "What is the nearest subway stop to the Museum of Natural History?",
+              "tools_triggered": "nearest_subway",
+              "expected_behavior": "Names the nearest stops with their lines and walking distance as returned, and says the walking time is an estimate."
+            },
+            {
+              "description": "Day-by-day itinerary",
+              "prompt": "Plan a 3-day itinerary for a first visit to New York.",
+              "tools_triggered": "list_trips, get_trip",
+              "expected_behavior": "Lists Eric's itineraries, opens the one closest to three days or says which length is nearest, and presents its days with a link to the source page."
+            },
+            {
+              "description": "OMNY card",
+              "prompt": "Can I get an OMNY card for the subway sent to me before my trip?",
+              "tools_triggered": "get_omny_card_info",
+              "expected_behavior": "Says whether the site sells the OMNY card as returned, that it is a physical card the site ships, and gives the link to the page where the purchase is made. Takes no payment in the chat."
+            }
+          ],
+          "negative": [
+            {
+              "description": "There is no booking or payment tool. The plugin should say it cannot book or pay, and at most give the link to the show's page.",
+              "prompt": "Book two tickets for The Lion King tonight and pay with my saved card."
+            },
+            {
+              "description": "The plugin covers New York City only. It should say it does not cover other cities and not invent a Chicago plan.",
+              "prompt": "Plan me a weekend in Chicago."
+            },
+            {
+              "description": "The plugin has no account or order access. It should say so and point to the support page.",
+              "prompt": "Show me my orders and change the date of my booking."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Initial release: 16 skills for planning a New York City trip with the Eric's New York guide."
+      }
+    }
+  }
+}

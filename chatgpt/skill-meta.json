@@ -1,0 +1,18 @@
+{
+  "airport-transfers": {"display_name": "Airport transfers", "short_description": "Compare ways from the airport to your hotel"},
+  "another-countrys-prices": {"display_name": "Another country's prices", "short_description": "Answers in your own currency and language"},
+  "attraction-pass-savings": {"display_name": "Attraction pass savings", "short_description": "Compare passes with separate tickets"},
+  "broadway-shows-and-seats": {"display_name": "Broadway shows and seats", "short_description": "Find shows and seats for your date"},
+  "choose-the-right-tool": {"display_name": "Choose the right tool", "short_description": "Pick the right lookup for a trip question"},
+  "cite-and-link-sources": {"display_name": "Cite and link sources", "short_description": "Link every answer to its source page"},
+  "erics-stayed-hotels": {"display_name": "Eric's stayed-at hotels", "short_description": "Hotels Eric has stayed in, with his verdict"},
+  "nearest-subway-stop": {"display_name": "Nearest subway stop", "short_description": "Find the closest subway stop to a place"},
+  "never-invent-prices-or-availability": {"display_name": "Never invent prices or availability", "short_description": "Report prices and seats only as returned"},
+  "omny-card": {"display_name": "OMNY card", "short_description": "Check whether the OMNY fare card can be sent to you"},
+  "places-to-visit-eat-shop": {"display_name": "Places to visit, eat or shop", "short_description": "Places Eric recommends in New York"},
+  "plan-a-first-trip": {"display_name": "Plan a first trip", "short_description": "Build a day-by-day New York itinerary"},
+  "send-feedback": {"display_name": "Send feedback", "short_description": "Send a short note to the publisher on request"},
+  "walking-routes-in-the-app": {"display_name": "Walking routes in the app", "short_description": "Name Eric's routes; the routes are in the app"},
+  "weather-and-rain-plan": {"display_name": "Weather and rain plan", "short_description": "Forecast and a plan for rainy days"},
+  "whats-on-during-your-dates": {"display_name": "What is on during your dates", "short_description": "Events happening on your travel dates"}
+}
