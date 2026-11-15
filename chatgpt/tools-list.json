@@ -1,0 +1,583 @@
+[
+ {
+  "name": "site_info",
+  "title": "Site info",
+  "description": "Identity of this website: site name, domain, locale, market (and country, when known), and home URL.",
+  "inputSchema": {
+   "properties": {
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "search_site",
+  "title": "Search the site",
+  "description": "Search this website for articles, attractions, shows and tips.",
+  "inputSchema": {
+   "properties": {
+    "query": {
+     "description": "Search terms (2-200 characters).",
+     "minLength": 2,
+     "maxLength": 200,
+     "type": "string"
+    },
+    "limit": {
+     "description": "Maximum number of results, clamped to 1-20 (default 10).",
+     "default": 10,
+     "minimum": 1,
+     "maximum": 20,
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "query"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "get_page",
+  "title": "Get a page",
+  "description": "The content of one page of this website as Markdown. Pass the address of a page, as returned by search_site.",
+  "inputSchema": {
+   "properties": {
+    "url": {
+     "description": "The address of a page of this site, as returned by search_site.",
+     "type": "string"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "url"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_events",
+  "title": "List events",
+  "description": "Events on this site's calendar (concerts, sports, nightlife, theatre) within an optional date range and category, with a from-price and performer names where held.",
+  "inputSchema": {
+   "properties": {
+    "from": {
+     "description": "YYYY-MM-DD, not before today. Defaults to today.",
+     "type": "string"
+    },
+    "to": {
+     "description": "YYYY-MM-DD, not before \"from\" (or today, if \"from\" is omitted). Defaults to 90 days after \"from\".",
+     "type": "string"
+    },
+    "category": {
+     "description": "Optional category filter (e.g. \"Broadway\", \"Sports\", \"Nightlife\").",
+     "type": "string"
+    },
+    "limit": {
+     "description": "Maximum number of results, clamped to 1-50 (default 20).",
+     "default": 20,
+     "minimum": 1,
+     "maximum": 50,
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_pass_picker_attractions",
+  "title": "List attraction-pass attractions",
+  "description": "List the attractions this site's pass picker can compare prices for, including any sub-attraction \"grade\" options. Every priceAdult/priceChild is in USD, named by the sibling `currency` field, regardless of which site is asked.",
+  "inputSchema": {
+   "properties": {
+    "limit": {
+     "description": "Maximum items to return, 1-100 (default 20).",
+     "type": "integer"
+    },
+    "offset": {
+     "description": "Number of items to skip (default 0). The nextOffset of the previous result gives the next value.",
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "calculate_pass_prices",
+  "title": "Compare attraction pass prices",
+  "description": "Compare the total price of buying selected attraction tickets separately vs the cheapest and recommended attraction pass. Every figure in the result is in USD, named once by the response's `currency` field, regardless of which site is asked.",
+  "inputSchema": {
+   "properties": {
+    "attractions": {
+     "description": "Attraction IDs from list_pass_picker_attractions, 1-50 items (duplicates are ignored).",
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "adults": {
+     "description": "Number of adults, 1-50 (default 2).",
+     "type": "integer"
+    },
+    "children": {
+     "description": "Number of children, 0-50 (default 0).",
+     "type": "integer"
+    },
+    "days": {
+     "description": "Number of days (max 365), only for passes sold by day count.",
+     "type": "integer"
+    },
+    "grades": {
+     "description": "Optional map of attraction id -> grade id, for attractions that offer sub-attraction grades - see the \"grades\" field on each list_pass_picker_attractions result.",
+     "type": "object"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "attractions"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_transfer_options",
+  "title": "List airport transfer options",
+  "description": "List the departure points, destinations and group size limits the airport transfer planner accepts.",
+  "inputSchema": {
+   "properties": {
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "calculate_transfer",
+  "title": "Calculate a transfer",
+  "description": "Price every available airport transfer option (taxi, shared shuttle, train, ...) between a departure point and destination for a given group size. Every mode's `amount`/`currency` are the correct figures (basis: total for the whole group, not per person) - the flat `price` string is deprecated, kept for one release. A mode with `unavailable: true` (in `modes`, or the whole entry in `skipped`) means no price is available for that mode right now.",
+  "inputSchema": {
+   "properties": {
+    "persons": {
+     "description": "Group size, 1-50.",
+     "type": "integer"
+    },
+    "departure": {
+     "description": "A departure id from list_transfer_options.",
+     "type": "integer"
+    },
+    "destination": {
+     "description": "A destination id from list_transfer_options.",
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "persons",
+    "departure",
+    "destination"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_trips",
+  "title": "List trips",
+  "description": "This site's curated trip itineraries (e.g. \"3 Days in NYC\") - shared, editorially-written plans, not a personal saved-trips list. This site has no visitor accounts or per-visitor trip storage.",
+  "inputSchema": {
+   "properties": {
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "get_trip",
+  "title": "Get a trip",
+  "description": "One of this site's curated trip itineraries, in full: title, intro, image and its day-by-day plan.",
+  "inputSchema": {
+   "properties": {
+    "handle": {
+     "description": "The trip handle from list_trips.",
+     "type": "string"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "handle"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_broadway_shows",
+  "title": "List Broadway shows",
+  "description": "Broadway shows currently on sale on this site, with their show id, title, URL, venue, synopsis, running time, rating code and venue address. priceFrom is in this site's own checkout currency, named by the sibling `currency` field.",
+  "inputSchema": {
+   "properties": {
+    "query": {
+     "description": "Optional show name filter.",
+     "type": "string"
+    },
+    "limit": {
+     "description": "Maximum items to return, 1-100 (default 10).",
+     "type": "integer"
+    },
+    "offset": {
+     "description": "Number of items to skip (default 0). The nextOffset of the previous result gives the next value.",
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "get_performance_availability",
+  "title": "Check performance availability",
+  "description": "Performances (date/time, price and available ticket count) for one Broadway show on one date. price is in this site's own checkout currency, named by the sibling `currency` field - the same currency list_broadway_shows uses for the same show.",
+  "inputSchema": {
+   "properties": {
+    "show_id": {
+     "description": "The show id from list_broadway_shows.",
+     "type": "string"
+    },
+    "date": {
+     "description": "YYYY-MM-DD, not before today.",
+     "type": "string"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "show_id",
+    "date"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "send_feedback",
+  "title": "Send feedback",
+  "description": "Stores one short note about this site: what was looked for, whether it was found, and what was missing, wrong or worked well. Do not include personal details (names, emails, phone numbers).",
+  "inputSchema": {
+   "properties": {
+    "looking_for": {
+     "description": "What was being looked for or done (1-200 characters).",
+     "minLength": 1,
+     "maxLength": 200,
+     "type": "string"
+    },
+    "found": {
+     "description": "Whether it was found.",
+     "enum": [
+      "yes",
+      "partly",
+      "no"
+     ],
+     "type": "string"
+    },
+    "note": {
+     "description": "What was missing, wrong or could be better, or what worked well (1-500 characters). No personal details.",
+     "minLength": 1,
+     "maxLength": 500,
+     "type": "string"
+    },
+    "page_or_tool": {
+     "description": "The page URL or tool name this is about (up to 200 characters).",
+     "maxLength": 200,
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "looking_for",
+    "found",
+    "note"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": false,
+   "destructiveHint": false,
+   "idempotentHint": false,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "nearest_subway",
+  "title": "Nearest subway",
+  "description": "Find the three nearest subway stops (with lines, distance in metres, an estimated walking time and whether the stop is step-free) to one of our places, by name, or to a latitude/longitude in New York. It does not geocode street addresses: pass a place name we know or coordinates. Walking times are estimates from straight-line distance. If both place and coordinates are given, place wins.",
+  "inputSchema": {
+   "properties": {
+    "place": {
+     "description": "The name of one of our places, e.g. \"Empire State Building\".",
+     "type": "string"
+    },
+    "latitude": {
+     "description": "Latitude in New York (40.4 to 41). Use with longitude instead of place.",
+     "type": "number"
+    },
+    "longitude": {
+     "description": "Longitude in New York (-74.3 to -73.6). Use with latitude instead of place.",
+     "type": "number"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "search_places",
+  "title": "Search places",
+  "description": "Find places Eric's New York recommends (sights, food, shops and more) by name, category, or distance from another of our places. Each card has a short description, address, coordinates, Eric's tip, where we sell a ticket (no price), and the two nearest subway stops with walking-time estimates. Stops of the paid walking routes are not included. At least one of query, category or near is required. It does not geocode street addresses.",
+  "inputSchema": {
+   "properties": {
+    "query": {
+     "description": "Part of a place name, e.g. \"Top of the Rock\".",
+     "type": "string"
+    },
+    "category": {
+     "description": "A category name, matched case-insensitively, e.g. \"Museums\".",
+     "type": "string"
+    },
+    "near": {
+     "description": "The name of one of our places; results are sorted by distance from it.",
+     "type": "string"
+    },
+    "limit": {
+     "description": "Maximum number of places, clamped to 1-20 (default 5).",
+     "default": 5,
+     "minimum": 1,
+     "maximum": 20,
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "list_walking_routes",
+  "title": "Walking routes",
+  "description": "The names of the guided walking routes sold in the Eric's New York app. The result holds the route names and the app store links. The route itself (path, stops, texts) is a paid product and is not available here.",
+  "inputSchema": {
+   "properties": {
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "new_york_weather",
+  "title": "New York weather",
+  "description": "The US National Weather Service forecast for New York City: day and night periods for up to 7 days with temperature in Fahrenheit and Celsius, a short description and the chance of rain. Pass a date (YYYY-MM-DD) for one day. When rain is likely the answer adds a rain plan from our own guides. Forecast text is in English, as the National Weather Service wrote it.",
+  "inputSchema": {
+   "properties": {
+    "date": {
+     "description": "Optional day to return, YYYY-MM-DD. Omit it for the whole forecast.",
+     "type": "string"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": true
+  }
+ },
+ {
+  "name": "search_stayed_hotels",
+  "title": "Search stayed-at hotels",
+  "description": "Find New York hotels on Eric's stayed-at list, by hotel name or neighbourhood, each with his one-line verdict in English and when he last stayed. It is not a full hotel search: no prices or availability. Leave query empty to list some of them.",
+  "inputSchema": {
+   "properties": {
+    "query": {
+     "description": "Part of a hotel name or neighbourhood, e.g. \"Midtown\".",
+     "type": "string"
+    },
+    "limit": {
+     "description": "Maximum number of hotels, clamped to 1-20 (default 5).",
+     "default": 5,
+     "minimum": 1,
+     "maximum": 20,
+     "type": "integer"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ },
+ {
+  "name": "get_omny_card_info",
+  "title": "OMNY transit card",
+  "description": "Tells a traveller whether this site sells the OMNY contactless fare card for New York subway and local buses, and gives the link to this site's own OMNY page. Prices are returned only when include_prices is true, so set it only when the traveller asks what the card costs.",
+  "inputSchema": {
+   "properties": {
+    "include_prices": {
+     "description": "Set to true only when the traveller asks what the card costs. Default false.",
+     "type": "boolean"
+    },
+    "country": {
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  }
+ }
+]
