@@ -9,13 +9,18 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## site_info
 - Inputs: `country` only.
-- Returns the site name, domain, language, market, country when known, home page, the tool names offered here, the other country sites (`countries`) and the `app` store links.
+- Returns the site name, domain, language, market, country when known, home page, the tool names offered here, the other country sites (`countries`), the `app` store links and, where the site has them, its social channels.
 
 ## search_site
 - Inputs: `query` (2-200 characters, required), `limit` (1-20, default 10).
 - Returns pages from the guide with their links and a short excerpt. Search in the site's own language.
 - Search with a short phrase, not a single short word: "do I need an ESTA" finds the guide, "ESTA" alone can match unrelated pages.
 - If the results do not match the question, search again with the topic's plain name: "New York subway" finds the subway guide, "how the subway works" does not. Do not present unrelated results as the answer.
+
+## get_page
+- Inputs: `url` (required): the address of a page of this site, exactly as `search_site` returned it.
+- Returns the content of that one page as Markdown. Use it when a search excerpt does not answer the question.
+- It reads pages of the guide only. Do not pass an address from another website or one you built yourself.
 
 ## list_events
 - Inputs: `from` and `to` as YYYY-MM-DD (not before today; `to` defaults to 90 days after `from`, and a longer span is cut to 90 days: the result echoes the dates it used), `category` (for example "Broadway", "Sports", "Nightlife"), `limit` (1-50, default 20). No `offset`.
@@ -49,7 +54,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 - Returns one itinerary: `title`, `intro`, `url` and `config`, where `config.resources` are the days and `config.events` the steps (`text`, `resource` = day id). Dates inside `events` are placeholders.
 
 ## list_broadway_shows
-- Inputs: `query` (optional show name filter), `limit`, `offset`.
+- Inputs: `query` (optional show name filter), `limit`, `offset`, and a date input where the tool lists one: with it, each bookable show's lowest price that day comes back, cheapest first.
 - Returns shows on sale. Each has `showId`, title, link, `bookable`, venue, venue address, synopsis, running time (`runTime`), age rating (`ageRating`), and `priceFrom` with `currency` and `basis` (per person), in the site's own currency.
 - Some rows are partner or affiliate shows: `showId`, venue and price are empty and `bookable` is false. Give their link when the row has one, and do not call `get_performance_availability` for them.
 
@@ -61,6 +66,11 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 - Inputs: `place` (the name of one of the guide's places), or `latitude` and `longitude` together (inside New York). If both are given, `place` wins.
 - Returns the three nearest subway stops with lines, distance in metres, an estimated walking time and whether the stop is step-free. Walking times are estimates from straight-line distance, not a routed walk.
 - It does not turn a street address into coordinates. For an address, ask for a place name the guide knows, or coordinates.
+
+## get_omny_card_info
+- Inputs: `include_prices` (optional, default false): set it to true only when the traveller asks what the card costs.
+- Returns `available` (whether this site sells the OMNY card), `what` (a short description) and `url` (this site's own OMNY page). With `include_prices` it adds `options`, each with a `name` and a `price` (`amount`, `currency`).
+- The card is a physical card the site ships. Nothing is paid here: the purchase happens on the page behind `url`.
 
 ## search_places
 - Inputs: at least one of `query` (part of a place name), `category` (for example "Museums") or `near` (the name of one of the guide's places; results are sorted by distance from it); `limit` (1-20, default 5). No `offset`.
@@ -81,6 +91,10 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 - Inputs: `date` (optional, YYYY-MM-DD), `country`.
 - Returns the US National Weather Service forecast for New York City: day and night periods for up to 7 days, temperature in Fahrenheit and Celsius, a short description (in English) and the chance of rain. A date outside the forecast returns a message instead.
 - When rain is likely (a chance of 40 percent or more in a period) the result adds a `rain_plan`: indoor categories to search with `search_places`, and a guide article when one exists.
+
+## subscribe_newsletter
+- Inputs: the traveller's own e-mail address. Use it only when the traveller gives that address and agrees; ask once.
+- The sign-up counts only after the traveller clicks the link in the confirmation e-mail.
 
 ## send_feedback
 - Inputs: `looking_for` (1-200 characters), `found` (`yes`, `partly` or `no`), `note` (1-500 characters), all required; `page_or_tool` (optional, up to 200 characters). It takes no `country`.

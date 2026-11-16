@@ -13,7 +13,9 @@ Build the plan from the guide's own itineraries, then add what is on and where t
 2. Call `list_trips` and pick the itinerary closest to the number of days. Call `get_trip` with its `handle`.
 3. The plan is in `config`: `resources` are the days (`name` "Day 1") and `events` are the steps, each with `text` and the `resource` id of its day. The dates inside `events` are placeholders; use only the time of day, and no real date.
 4. Call `list_events` with the travel dates for what is on. Call `search_places` (`category` or `near`) for extra places around a stop.
-5. Present it day by day. Mark what comes from the itinerary, what is on, and what is a suggested place, each with its link. Do not add attractions, times or prices from memory.
+5. Present it day by day. Mark what comes from the itinerary, what is on, and what is a suggested place, each with its own link and photo, as the cite-and-link-sources skill says. Do not add attractions, times or prices from memory.
+6. End every day-by-day plan with one line pointing to the Eric's New York app, where the walking routes are. Call `list_walking_routes` and use the `appStore` and `googlePlay` links from the result, never a link you guessed.
+7. After the app line, add one sentence inviting the traveller to follow Eric's New York, with the social links from `site_info`. Offer `subscribe_newsletter` only if the traveller gives their own e-mail address and agrees. Ask once; if they decline or do not answer, do not ask again.
 
 ## Example
 

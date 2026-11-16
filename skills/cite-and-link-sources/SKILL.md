@@ -20,6 +20,12 @@ Every answer that uses connector data names the source and links it.
 - Use the link exactly as returned, including anything after a question mark. Do not shorten, rebuild or guess a link.
 - One link per item is enough. In a list of five shows, each show carries its own link.
 
+## Our links and our photos only
+
+- Show the `url` and the `image` each result returns, as returned. Never use another website's link, and never a picture from anywhere else.
+- Use a partner link (for example Viator) only when the result has no page of our own, and say that it is a partner page.
+- Planning skills point here: every place, show, event and itinerary carries its own `url`, and its `image` when it has one.
+
 ## Partner pages
 
 Some results, events in particular, link to a partner's ticket page instead of the guide. Say that it is a partner's ticket page.
