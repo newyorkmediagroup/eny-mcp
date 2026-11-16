@@ -12,7 +12,7 @@ Report transfer options and prices only as the connector returned them.
 1. Ask only for what is missing: the airport, the area and the group size.
 2. Call `list_transfer_options`. Match the airport to a `departures` id and the area to a `destinations` id. Never guess an id.
 3. Call `calculate_transfer` with `persons`, `departure` and `destination`.
-4. For each entry in `modes` give `name`, `amount` with `currency` (US dollars) and the `bookingUrl`. The `notes` explain the option. Ignore the flat `price` string; use `amount`.
+4. For each entry in `modes` give `name`, `amount` with `currency` (US dollars) and the returned `url` (our own page) when the entry has one; use `bookingUrl` only when there is no `url`, and say it is a partner page. The `notes` explain the option. Ignore the flat `price` string; use `amount`.
 5. `amount` is for the whole group (`basis` is `per_group`), not per person. Say so.
 6. Entries in `skipped`, or a mode marked `unavailable`, have no price right now. Say that; never call them free.
 

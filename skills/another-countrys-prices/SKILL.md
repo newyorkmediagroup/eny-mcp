@@ -5,7 +5,7 @@ description: Use when the traveller is visiting from another country, asks for p
 
 # Another country's prices
 
-Each country has its own Eric's New York site, with its own language, currency and links. Every tool except `send_feedback` takes an optional `country`.
+Each country has its own Eric's New York site, with its own language, currency and links. Every tool except `send_feedback` and `subscribe_newsletter` takes an optional `country`.
 
 ## Steps
 

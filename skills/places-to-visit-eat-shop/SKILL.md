@@ -10,7 +10,7 @@ Suggest only places the connector returned.
 ## Steps
 
 1. Call `search_places` with at least one of `query` (part of a place name), `category` (for example "Museums") or `near` (the name of one of the guide's places; results are sorted by distance from it). `limit` is 1-20 (default 5).
-2. For each place give its `name`, `address`, the guide's `tip` and, when it has one, the `ticket` link. Give `nearestSubway` when the traveller asks how to get there.
+2. For each place give its `name`, `address`, the guide's `tip`, its own `url` and `image` when it has them, and the `ticket` link only when there is no `url` (say it is a ticket partner's page). Give `nearestSubway` when the traveller asks how to get there.
 3. `ticket` carries a link and no price. Do not state a price for a place.
 4. When `places` is empty, the `hint` says what to change: use a shorter name or another category, and try again once. Do not fill the gap from memory.
 

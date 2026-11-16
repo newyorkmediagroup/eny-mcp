@@ -12,7 +12,7 @@ Report shows, prices and seats only as the connector returned them.
 1. When the traveller names a date and `list_broadway_shows` lists a `date` input, call it with that date (YYYY-MM-DD): one call returns each bookable show's lowest price that day, cheapest first. Otherwise call it with `query` for a show name. It returns a page: when the result has `nextOffset`, send that value as `offset` for the next page. The last page has no `nextOffset`.
 2. A row with a `showId` is bookable. A row with no `showId` (`bookable` false, no venue or price) is a partner or affiliate page: give its `url` and do not call `get_performance_availability` for it.
 3. For seats, ask for the date if the traveller gave none. Call `get_performance_availability` only for the few shows the traveller is interested in, never for every show, with `show_id` (a string) and `date` (YYYY-MM-DD).
-4. Each performance has `date_label`, `description` (the seating area), `price`, `currency` and `amount`, with `max_quantity` as the most tickets one booking takes. If `performances` is empty, say there are no performances that day.
+4. Each performance has `date_label`, `description` (the seating area), `price`, `currency` and `amount`; the result does not say how many tickets a booking takes or how many are left. If `performances` is empty, say there are no performances that day.
 
 ## Prices
 

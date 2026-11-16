@@ -5,7 +5,7 @@ description: Use when the traveller asks you to tell Eric's New York something, 
 
 # Send feedback
 
-`send_feedback` is the one tool that writes: it stores one short note. Use it only when the traveller asks to tell Eric's New York something. Never on your own.
+`send_feedback` writes: it stores one short note. Use it only when the traveller asks to tell Eric's New York something. Never on your own. (`subscribe_newsletter` is the other tool that writes; it needs the traveller's own address and consent.)
 
 ## Steps
 

@@ -13,5 +13,5 @@ Files: `plugin.json` and `mcp.json` (Agent Plugins format), `skill-meta.json` (f
 `test_build.py` proves the built skills are byte-identical to `../skills/` (no patches).
 
 Each validator rule cites OpenAI's page and line (`SUB`, `ERR`, `GUI`, `SKL` in `validate.py`).
-Do not change anything outside `chatgpt/` for this package: the plugin in `../skills/` and
-`../.claude-plugin/` is under separate review.
+Package metadata and build code live in `chatgpt/`. All shared skill content is edited only in `../skills/`
+(never copied here), and `../.claude-plugin/` is not part of this package.

@@ -12,7 +12,7 @@ Ask for the dates if the traveller gave none, then report events only as returne
 1. Call `list_events` with `from` and `to` (YYYY-MM-DD). `from` is not before today. `to` defaults to 90 days after `from`; the result echoes the dates it used. Add `category` (for example "Sports") to narrow it and `limit` (1-50, default 20). There is no `offset`.
 2. For each event give `title`, `date`, `time`, `venue` and `category`. `performers` is present only for some events.
 3. `priceFrom` with `currency` and `basis` (`per_ticket`) is a from-price. An event without one has no price shown: that is not a free ticket.
-4. The `url` often leads to a partner's ticket page. Say so.
+4. Give the `url` as returned. When it leads to a partner's ticket page, say so; when it is a page on this site, do not call it a partner page.
 
 ## Example
 

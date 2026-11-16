@@ -4,7 +4,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## Inputs every tool shares
 
-- `country` (optional, every tool except `send_feedback`): answers from another country's own Eric's New York site, in its language, currency and links. Use the values the tool's own `country` description lists: a country code such as `NL`, or the site's locale code such as `nl_NL`. Omit it for the current site's answer.
+- `country` (optional, every tool except `send_feedback` and `subscribe_newsletter`): answers from another country's own Eric's New York site, in its language, currency and links. Use the values the tool's own `country` description lists: a country code such as `NL`, or the site's locale code such as `nl_NL`. Omit it for the current site's answer.
 - Paging (`limit`, `offset`): only `list_broadway_shows` and `list_pass_picker_attractions`. `limit` is 1-100 (default 10 for shows, 20 for attractions). The result carries `total`, and `nextOffset` when more remain: send that value as `offset` for the next page.
 
 ## site_info
@@ -60,7 +60,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## get_performance_availability
 - Inputs: `show_id` from `list_broadway_shows` (a string) and `date` as YYYY-MM-DD, not before today (both required).
-- Returns that date's performances: `date_label` (date and time), `description` (the seating area), `price` and `amount`, `currency`, `basis` and `max_quantity` (the most tickets one booking takes), in the same currency as `list_broadway_shows`. It does not return a count of tickets left.
+- Returns that date's performances: `date_label` (date and time), `description` (the seating area), `price` and `amount`, `currency`, `basis`, in the same currency as `list_broadway_shows`. It does not return a count of tickets left.
 
 ## nearest_subway
 - Inputs: `place` (the name of one of the guide's places), or `latitude` and `longitude` together (inside New York). If both are given, `place` wins.
@@ -69,7 +69,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## get_omny_card_info
 - Inputs: `include_prices` (optional, default false): set it to true only when the traveller asks what the card costs.
-- Returns `available` (whether this site sells the OMNY card), `what` (a short description) and `url` (this site's own OMNY page). With `include_prices` it adds `options`, each with a `name` and a `price` (`amount`, `currency`).
+- Returns `available` (whether this site sells the OMNY card), `what` (a short description) and `url` (this site's own OMNY page). With `include_prices` it adds `options`, each with a `name` and either a `price`, or an `adultPrice` and optionally a `childPrice` (each with `amount` and `currency`).
 - The card is a physical card the site ships. Nothing is paid here: the purchase happens on the page behind `url`.
 
 ## search_places
@@ -93,9 +93,9 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 - When rain is likely (a chance of 40 percent or more in a period) the result adds a `rain_plan`: indoor categories to search with `search_places`, and a guide article when one exists.
 
 ## subscribe_newsletter
-- Inputs: the traveller's own e-mail address. Use it only when the traveller gives that address and agrees; ask once.
+- Inputs: `email` (required, the traveller's own address; no `country`). Use it only when the traveller gives that address and agrees; ask once.
 - The sign-up counts only after the traveller clicks the link in the confirmation e-mail.
 
 ## send_feedback
 - Inputs: `looking_for` (1-200 characters), `found` (`yes`, `partly` or `no`), `note` (1-500 characters), all required; `page_or_tool` (optional, up to 200 characters). It takes no `country`.
-- The one tool that writes: it stores a single short note. See the rule in `SKILL.md`. Never include names, emails, phone numbers or other personal details.
+- Writes: it stores a single short note (`subscribe_newsletter` also writes, with its own consent rule). See the rule in `SKILL.md`. Never include names, emails, phone numbers or other personal details.

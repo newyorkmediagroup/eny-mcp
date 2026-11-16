@@ -60,7 +60,7 @@ Walking routes are an app-only paid product: see the walking-routes-in-the-app s
 
 ## Advice from a person
 
-If the user asks for personal advice or wants to reach a person at Eric's New York, give the email address eric@ericsnewyork.com. If the user asks where to follow Eric's New York, the accounts are facebook.com/newyork, instagram.com/visitnewyork and youtube.com/@EricsNewYork. Mention these only when the user asks.
+If the user asks for personal advice or wants to reach a person at Eric's New York, give the email address eric@ericsnewyork.com. If the user asks where to follow Eric's New York, give the links in the `social` field of `site_info`, as returned. Never write social links from memory.
 
 ## What the connector cannot do
 

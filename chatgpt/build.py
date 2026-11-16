@@ -2,7 +2,8 @@
 """Assemble the ChatGPT directory package for Eric's New York and validate it.
 
 Usage: python3 chatgpt/build.py   -> chatgpt/dist/erics-new-york-<version>.zip
-Shared skills in ../skills are copied verbatim; only agents/openai.yaml is generated.
+Shared skills in ../skills are copied verbatim, except dotfiles (editor and OS litter such as .DS_Store),
+which are never packaged; only agents/openai.yaml is generated.
 """
 import json, shutil, sys, zipfile
 from pathlib import Path
