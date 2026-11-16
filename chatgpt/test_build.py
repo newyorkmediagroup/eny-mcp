@@ -23,9 +23,15 @@ class OneSkillsSource(unittest.TestCase):
                 self.assertTrue(filecmp.cmp(REPO / "skills" / rel, out / "skills" / rel, shallow=False), f"{rel} differs from skills/")
 
     def test_dotfiles_are_not_packaged(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            out = build.assemble(Path(tmp) / "pkg")
-            self.assertFalse([p for p in relative_files(out / "skills") if any(part.startswith(".") for part in p.parts)])
+        probe = next(p for p in sorted((REPO / "skills").iterdir()) if p.is_dir()) / ".probe-dotfile"
+        probe.write_text("x")
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                out = build.assemble(Path(tmp) / "pkg")
+                raw = [p.name for p in (out / "skills").rglob("*")]
+                self.assertNotIn(".probe-dotfile", raw)
+        finally:
+            probe.unlink()
 
     def test_no_chatgpt_only_skills(self):
         self.assertFalse((build.HERE / "skills").exists())

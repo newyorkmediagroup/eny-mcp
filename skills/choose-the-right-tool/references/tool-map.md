@@ -42,7 +42,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## calculate_transfer
 - Inputs: `persons` (1-50), `departure` and `destination` (ids from `list_transfer_options`), all required.
-- Returns `modes`, each with `name`, `notes`, `amount`, `currency` (US dollars), `basis` (`per_group`) and `bookingUrl`. The amount is for the whole group, not per person.
+- Returns `modes`, each with `name`, `notes`, `amount`, `currency` (US dollars), `basis` (`per_group`) and either our own page `url` (with a `callToAction`) or, when there is none, the partner `bookingUrl`. The amount is for the whole group, not per person.
 - An option marked `unavailable` has no price right now.
 
 ## list_trips
@@ -74,7 +74,7 @@ One entry per tool: what it needs, where its ids come from, and what to know abo
 
 ## search_places
 - Inputs: at least one of `query` (part of a place name), `category` (for example "Museums") or `near` (the name of one of the guide's places; results are sorted by distance from it); `limit` (1-20, default 5). No `offset`.
-- Returns the guide's places with a short description, address, coordinates, the guide's tip, a ticket link where the guide sells one (no price), and the two nearest subway stops. Stops of the paid walking routes are not included.
+- Returns the guide's places with a short description, address, coordinates, the guide's tip, our own page `url` and `image` where available, a `ticket` link only when the place has no own page and the guide sells one (no price), and the two nearest subway stops. Stops of the paid walking routes are not included.
 - An empty result carries a hint with the closest names. It does not turn a street address into coordinates.
 
 ## search_stayed_hotels
