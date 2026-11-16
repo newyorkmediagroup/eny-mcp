@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "erics-new-york",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "New York City trip planning from Eric's New York, a travel guide by a local: Broadway shows and seats, attraction pass comparisons, airport transfers, events, itineraries, places, hotels Eric has stayed in, nearest subway stops and the weather forecast, each answer linked to its source page.",
   "author": {
     "name": "New York Media Group B.V.",

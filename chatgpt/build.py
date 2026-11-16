@@ -2,7 +2,7 @@
 """Assemble the ChatGPT directory package for Eric's New York and validate it.
 
 Usage: python3 chatgpt/build.py   -> chatgpt/dist/erics-new-york-<version>.zip
-Shared skills in ../skills are copied, never edited; text patches apply to the copy only.
+Shared skills in ../skills are copied verbatim; only agents/openai.yaml is generated.
 """
 import json, shutil, sys, zipfile
 from pathlib import Path
@@ -11,12 +11,6 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 DIST = HERE / "dist"
 
-# (skill, exact old text, new text): each must match exactly once or the build fails.
-PATCHES = [(
-    "attraction-pass-savings",
-    "End with the link from the result where the user can check today's price and buy, and say that the figures are indicative.",
-    "End with the link from the result where the user can check today's price, and say that the figures are indicative.",
-)]
 FORBIDDEN_WORDS = ["Claude"]  # must be absent from the shared skills
 
 
@@ -60,19 +54,12 @@ def assemble(out):
         shutil.copy(HERE / f, out / f)
     shutil.copy(REPO / ".claude-plugin" / "icon.png", out / "assets" / "icon.png")
 
-    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir()) + [HERE / "skills" / "omny-card"]
+    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir())
     for src in sources:
         shutil.copytree(src, out / "skills" / src.name, ignore=shutil.ignore_patterns(".*"))
     names = {p.name for p in (out / "skills").iterdir()}
     if len(names) != 16:
         sys.exit(f"build: expected 16 skills, found {len(names)}")
-
-    for skill, old, new in PATCHES:
-        f = out / "skills" / skill / "SKILL.md"
-        text = f.read_text(encoding="utf-8")
-        if text.count(old) != 1:
-            sys.exit(f"build: patch for {skill} matched {text.count(old)} times, need exactly 1")
-        f.write_text(text.replace(old, new), encoding="utf-8")
 
     for f in sorted((out / "skills").rglob("*")):
         if f.is_file() and f.suffix == ".md":
