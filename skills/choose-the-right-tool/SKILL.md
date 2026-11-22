@@ -1,6 +1,6 @@
 ---
 name: choose-the-right-tool
-description: Use when the user is planning or asking about a visit to New York City - what to see, Broadway tickets and seats, attraction passes, airport transfers, events on certain dates, a day-by-day itinerary, the nearest subway stop, places to visit, where to stay, walking routes or the weather - and the Eric's New York connector is available.
+description: Use when the user is planning or asking about a visit to New York City - what to see, Broadway tickets and seats, attraction passes, airport transfers, events on certain dates, a day-by-day itinerary, the nearest subway stop, places to visit, where to stay or the weather - and the Eric's New York connector is available.
 ---
 
 # Choose the right tool
@@ -26,7 +26,6 @@ Call `site_info` once at the start of a New York conversation. It tells you whic
 | The nearest subway stop to a place | `nearest_subway` | - (nearest-subway-stop) |
 | The OMNY card, or paying for the subway and buses | `get_omny_card_info` | - (omny-card) |
 | Where to stay, or hotels Eric has stayed in | `search_stayed_hotels` | - (erics-stayed-hotels) |
-| Guided walking routes | `list_walking_routes` | Recommend the app (walking-routes-in-the-app) |
 | The forecast, or what to do if it rains | `new_york_weather` | `search_places` (weather-and-rain-plan) |
 | A ready-made plan ("3 days in New York"), day by day | `list_trips` | `get_trip` (plan-a-first-trip) |
 | A newsletter sign-up, after a trip plan | `subscribe_newsletter` | Only with the traveller's own e-mail and consent (plan-a-first-trip) |
@@ -54,9 +53,9 @@ Most tools take an optional `country` for another country's site, language and c
 
 `list_broadway_shows` and `list_pass_picker_attractions` return a page; for the next one, send the `nextOffset` value as `offset`. The other lists take only a `limit`.
 
-## Walking routes and feedback
+## Feedback
 
-Walking routes are an app-only paid product: see the walking-routes-in-the-app skill. `send_feedback` writes one note and only when the traveller asks: see the send-feedback skill.
+`send_feedback` writes one note and only when the traveller asks: see the send-feedback skill.
 
 ## Advice from a person
 

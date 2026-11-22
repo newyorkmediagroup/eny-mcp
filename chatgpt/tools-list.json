@@ -1,12 +1,12 @@
 [
  {
   "name": "site_info",
-  "title": "Site info",
-  "description": "Identity of this website: site name, domain, locale, market (and country, when known), and home URL.",
+  "title": "Get site name and contact details",
+  "description": "Use this when the traveller asks which New York site they are on, which market or language it serves, or how to get in touch. It returns the site name, domain, locale, market (and country, when known) and home URL; where the site has them, its social channels and a contact e-mail address. Do not use to look for travel content (use search_site) or to sign up for the newsletter (use subscribe_newsletter).",
   "inputSchema": {
    "properties": {
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -17,12 +17,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "search_site",
-  "title": "Search the site",
-  "description": "Search this website for articles, attractions, shows and tips.",
+  "title": "Search New York travel articles and guides",
+  "description": "Use this when the traveller asks a New York travel question that our own articles, attraction pages, show pages, tips or topic hub pages may answer. It searches this website and returns matching pages, each with its title, address and a short excerpt. Pass an address from the results to get_page to read the whole page. Do not use for live Broadway prices or dates (use list_broadway_shows or get_performance_availability) or for the weather (use new_york_weather).",
   "inputSchema": {
    "properties": {
     "query": {
@@ -39,7 +69,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -53,12 +83,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "get_page",
-  "title": "Get a page",
-  "description": "The content of one page of this website as Markdown. Pass the address of a page, as returned by search_site.",
+  "title": "Read a page of this site",
+  "description": "Use this when the traveller wants the full text of one specific page of this New York travel website, such as a page found with search_site. It returns the content of that page as Markdown, plus links to the same page in other countries where we have one. The `app` field holds the App Store and Google Play links of the Eric's New York app. Pass the address of a page, as returned by search_site. Do not use to look for pages (use search_site) or for live prices and dates (use list_broadway_shows or get_performance_availability).",
   "inputSchema": {
    "properties": {
     "url": {
@@ -66,7 +126,7 @@
      "type": "string"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -80,12 +140,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "list_events",
-  "title": "List events",
-  "description": "Events on this site's calendar (concerts, sports, nightlife, theatre) within an optional date range and category, with a from-price and performer names where held.",
+  "title": "Find New York events by date",
+  "description": "Use this when the traveller asks about what is on in New York on their dates, or about a team, performer or title: concerts, sports, nightlife or theatre. It lists the events on this site's calendar within an optional date range, category and name (a team, performer, title, category or theme such as Christmas, via query), with a from-price and performer names where held, and a link to our own page where we have one. Dates default to today and the next 90 days. Do not use for Broadway shows (use list_broadway_shows) or for sights, food and shops (use search_places).",
   "inputSchema": {
    "properties": {
     "from": {
@@ -93,11 +183,15 @@
      "type": "string"
     },
     "to": {
-     "description": "YYYY-MM-DD, not before \"from\" (or today, if \"from\" is omitted). Defaults to 90 days after \"from\".",
+     "description": "YYYY-MM-DD, not before \"from\" (or today, if \"from\" is omitted). Defaults to 90 days after \"from\". A cut answer names \"nextFrom\" to ask from next.",
      "type": "string"
     },
     "category": {
      "description": "Optional category filter (e.g. \"Broadway\", \"Sports\", \"Nightlife\").",
+     "type": "string"
+    },
+    "query": {
+     "description": "Optional. Only events whose title, performers, categories or description contain every word: a team, performer, title or theme (e.g. \"Knicks\", \"Christmas\").",
      "type": "string"
     },
     "limit": {
@@ -108,7 +202,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -119,12 +213,52 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "list_pass_picker_attractions",
-  "title": "List attraction-pass attractions",
-  "description": "List the attractions this site's pass picker can compare prices for, including any sub-attraction \"grade\" options. Every priceAdult/priceChild is in USD, named by the sibling `currency` field, regardless of which site is asked.",
+  "title": "List attractions for pass comparison",
+  "description": "Use this when the traveller wants to know which New York attractions can go into an attraction pass price comparison, or when the attraction ids are needed. It lists the attractions this site's pass picker can compare prices for, including any sub-attraction \"grade\" options and, where available, our own `image` of each. Every priceAdult/priceChild is in USD, named by the sibling `currency` field, regardless of which site is asked. Do not use to compare the prices (pass the ids to calculate_pass_prices) or to find things to do in general (use search_places).",
   "inputSchema": {
    "properties": {
     "limit": {
@@ -136,7 +270,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -147,12 +281,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "calculate_pass_prices",
   "title": "Compare attraction pass prices",
-  "description": "Compare the total price of buying selected attraction tickets separately vs the cheapest and recommended attraction pass. Every figure in the result is in USD, named once by the response's `currency` field, regardless of which site is asked.",
+  "description": "Use this when the traveller is choosing between buying New York attraction tickets separately and buying an attraction pass, and wants to know which costs less for their group. It compares the total price of the selected attractions bought separately with the cheapest and the recommended attraction pass. When no pass saves money, the result has `advice`, `nearestPass` (the closest pass, with `extraCost` = how much more than buying separately), `passPicker` and `attractionLinks` (own page or Viator link per attraction). Where available, a pass carries `url`, our own page for it, in place of a partner booking link. Every figure in the result is in USD, named once by the response's `currency` field, regardless of which site is asked. Do not use for browsing the attractions (call list_pass_picker_attractions first to get the ids) or for airport transfers (use calculate_transfer).",
   "inputSchema": {
    "properties": {
     "attractions": {
@@ -179,7 +343,7 @@
      "type": "object"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -193,16 +357,46 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "list_transfer_options",
   "title": "List airport transfer options",
-  "description": "List the departure points, destinations and group size limits the airport transfer planner accepts.",
+  "description": "Use this when the traveller wants an airport transfer in New York and the departure and destination ids or the allowed group sizes are needed. It lists the departure points, destinations and group size limits the airport transfer planner accepts. The ids it returns are the ones calculate_transfer takes. Do not use to get prices (use calculate_transfer) or for OMNY or subway-payment questions (use get_omny_card_info) or nearby subway stops (use nearest_subway).",
   "inputSchema": {
    "properties": {
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -213,12 +407,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "calculate_transfer",
-  "title": "Calculate a transfer",
-  "description": "Price every available airport transfer option (taxi, shared shuttle, train, ...) between a departure point and destination for a given group size. Every mode's `amount`/`currency` are the correct figures (basis: total for the whole group, not per person) - the flat `price` string is deprecated, kept for one release. A mode with `unavailable: true` (in `modes`, or the whole entry in `skipped`) means no price is available for that mode right now.",
+  "title": "Price an airport transfer",
+  "description": "Use this when the traveller asks what it costs to get between a New York airport (or another departure point) and their destination, and wants to compare taxi, shared shuttle, train and other options for their group size. It prices every available transfer option between a departure point and destination for a given group size. Every mode's `amount`/`currency` are the correct figures (basis: total for the whole group, not per person) - the flat `price` string is deprecated, kept for one release. Where available, an option carries `url`, our own page for it, which comes in place of a partner booking link. A mode with `unavailable: true` (in `modes`, or the whole entry in `skipped`) means no price is available for that mode right now. With `reverse` true the trip runs from a destination to an airport: `departure` is then a destination id and `destination` a departure id, both from list_transfer_options, and the planner link opens in reverse. Do not use for OMNY or subway-payment questions (use get_omny_card_info) or for nearby subway stops (use nearest_subway), and take the departure and destination ids from list_transfer_options.",
   "inputSchema": {
    "properties": {
     "persons": {
@@ -233,8 +457,12 @@
      "description": "A destination id from list_transfer_options.",
      "type": "integer"
     },
+    "reverse": {
+     "description": "True for a trip from a destination to an airport: departure is then a destination id and destination a departure id (default false).",
+     "type": "boolean"
+    },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -250,16 +478,46 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "list_trips",
-  "title": "List trips",
-  "description": "This site's curated trip itineraries (e.g. \"3 Days in NYC\") - shared, editorially-written plans, not a personal saved-trips list. This site has no visitor accounts or per-visitor trip storage.",
+  "title": "List New York trip itineraries",
+  "description": "Use this when the traveller wants ideas or a ready-made plan for a New York trip, such as three days in the city. It lists this site's curated trip itineraries (e.g. \"3 Days in NYC\"), each with its title, a link to our own page, an image and the handle get_trip takes. These are shared, editorially-written plans, not a personal saved-trips list: this site has no visitor accounts or per-visitor trip storage. The result carries an `app` field with the App Store and Google Play links of the Eric's New York app. Do not use to read a whole itinerary (use get_trip) or to find single places (use search_places).",
   "inputSchema": {
    "properties": {
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -270,12 +528,52 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "get_trip",
-  "title": "Get a trip",
-  "description": "One of this site's curated trip itineraries, in full: title, intro, image and its day-by-day plan.",
+  "title": "Read a New York trip itinerary",
+  "description": "Use this when the traveller wants the full day-by-day plan of one of our curated New York trip itineraries, such as \"3 Days in NYC\". It returns that trip in full: title, intro, image, a link to our own page and its day-by-day plan. Pass the trip handle from list_trips. The result carries an `app` field with the App Store and Google Play links of the Eric's New York app. Do not use to browse the available trips (use list_trips) or to look up a single place or event (use search_places or list_events).",
   "inputSchema": {
    "properties": {
     "handle": {
@@ -283,7 +581,7 @@
      "type": "string"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -297,16 +595,68 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "list_broadway_shows",
-  "title": "List Broadway shows",
-  "description": "Broadway shows currently on sale on this site, with their show id, title, URL, venue, synopsis, running time, rating code and venue address. priceFrom is in this site's own checkout currency, named by the sibling `currency` field.",
+  "title": "Find Broadway shows on sale",
+  "description": "Use this when the traveller asks about which Broadway shows they can see in New York, or on a given date, or about finding one by name. It lists the Broadway shows currently on sale on this site, with their show id, title, link to our own page (`url`), our own `image` where available, venue, synopsis, running time, rating code and venue address. priceFrom is in this site's own checkout currency, named by the sibling `currency` field. Without a date it is the show's lowest price over all dates; with `date` (or `from` and `to`, at most 7 days) only shows with a bookable performance then are listed, cheapest first, and priceFrom is the price in that window, equal to its lowestPrice, with lowestPriceDate. For the performance times of one show, pass its show id to get_performance_availability. Do not use for concerts, sports or nightlife (use list_events).",
   "inputSchema": {
    "properties": {
     "query": {
      "description": "Optional show name filter.",
+     "type": "string"
+    },
+    "date": {
+     "description": "Optional YYYY-MM-DD, not before today: only shows bookable that day, cheapest first.",
+     "type": "string"
+    },
+    "from": {
+     "description": "Optional YYYY-MM-DD start of a window of at most 7 days; use with `to`.",
+     "type": "string"
+    },
+    "to": {
+     "description": "Optional YYYY-MM-DD end of the window; use with `from`.",
      "type": "string"
     },
     "limit": {
@@ -318,7 +668,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -329,12 +679,52 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "get_performance_availability",
-  "title": "Check performance availability",
-  "description": "Performances (date/time, price and available ticket count) for one Broadway show on one date. price is in this site's own checkout currency, named by the sibling `currency` field - the same currency list_broadway_shows uses for the same show.",
+  "title": "Check Broadway show times and prices",
+  "description": "Use this when the traveller asks which performances of one Broadway show in New York are on a given date, and at what times and prices. It returns the performances (date/time and price) for that show on that date, with our own page image of the show where available and a link to our own page for the date. price is in this site's own checkout currency, named by the sibling `currency` field - the same currency list_broadway_shows uses for the same show. Pass a show_id taken from list_broadway_shows. Do not use to find shows, or the shows on a date (use list_broadway_shows), or for concerts, sports and other events (use list_events).",
   "inputSchema": {
    "properties": {
     "show_id": {
@@ -346,7 +736,7 @@
      "type": "string"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -361,12 +751,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "send_feedback",
   "title": "Send feedback",
-  "description": "Stores one short note about this site: what was looked for, whether it was found, and what was missing, wrong or worked well. Do not include personal details (names, emails, phone numbers).",
+  "description": "Use this when a lookup here missed what the traveller was looking for or returned something wrong, or when they want to say what worked well. Stores one short note about this site: what was looked for, whether it was found, and what was missing, wrong or worked well. Personal details such as names, e-mail addresses and phone numbers are removed from the note before it is saved. It takes no questions, looks nothing up and signs nobody up for the newsletter.",
   "inputSchema": {
    "properties": {
     "looking_for": {
@@ -385,7 +805,7 @@
      "type": "string"
     },
     "note": {
-     "description": "What was missing, wrong or could be better, or what worked well (1-500 characters). No personal details.",
+     "description": "What was missing, wrong or could be better, or what worked well (1-500 characters). Personal details are removed before it is saved.",
      "minLength": 1,
      "maxLength": 500,
      "type": "string"
@@ -408,12 +828,96 @@
    "destructiveHint": false,
    "idempotentHint": false,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "subscribe_newsletter",
+  "title": "Subscribe to the newsletter",
+  "description": "Use this when the visitor asks to be signed up to this New York site's newsletter. It sends one e-mail address, which the visitor gave themselves, to this site's newsletter provider (Mailchimp), which then e-mails that address a confirmation link. The sign-up counts once the link is clicked.",
+  "inputSchema": {
+   "properties": {
+    "email": {
+     "description": "The e-mail address the visitor wants the newsletter sent to (up to 254 characters).",
+     "maxLength": 254,
+     "type": "string"
+    }
+   },
+   "type": "object",
+   "required": [
+    "email"
+   ]
+  },
+  "annotations": {
+   "readOnlyHint": false,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": true
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "nearest_subway",
-  "title": "Nearest subway",
-  "description": "Find the three nearest subway stops (with lines, distance in metres, an estimated walking time and whether the stop is step-free) to one of our places, by name, or to a latitude/longitude in New York. It does not geocode street addresses: pass a place name we know or coordinates. Walking times are estimates from straight-line distance. If both place and coordinates are given, place wins.",
+  "title": "Find the nearest subway stop",
+  "description": "Use this when the traveller asks which subway stops are closest to a New York place, or to a spot given as latitude/longitude, and how far the walk is. It finds the three nearest subway stops (with lines, distance in metres, an estimated walking time and whether the stop is step-free) to one of our places, by name, or to a latitude/longitude in New York, with a link to our own subway guide where we have one. It does not geocode street addresses: pass a place name we know or coordinates. Walking times are estimates from straight-line distance, and if both place and coordinates are given, place wins. Do not use to find the places themselves (use search_places) or to ask about the OMNY fare card (use get_omny_card_info).",
   "inputSchema": {
    "properties": {
     "place": {
@@ -429,7 +933,7 @@
      "type": "number"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -440,12 +944,42 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  },
  {
   "name": "search_places",
-  "title": "Search places",
-  "description": "Find places Eric's New York recommends (sights, food, shops and more) by name, category, or distance from another of our places. Each card has a short description, address, coordinates, Eric's tip, where we sell a ticket (no price), and the two nearest subway stops with walking-time estimates. Stops of the paid walking routes are not included. At least one of query, category or near is required. It does not geocode street addresses.",
+  "title": "Find places to visit in New York",
+  "description": "Use this when the traveller asks about sights, food, bars, shops or other places to visit in New York that Eric's New York recommends, by name, category or distance from another of our places. Each card has a short description, address, coordinates, Eric's tip, our own page `url` and `image` where available, where we sell a ticket (a link, no price), and the two nearest subway stops with walking-time estimates. At least one of query, category or near is required, and it does not geocode street addresses. Each card's url, image and ticket link are our own or carry our partner id. Do not use for events on a date (use list_events), Broadway shows (use list_broadway_shows) or hotels (use search_stayed_hotels).",
   "inputSchema": {
    "properties": {
     "query": {
@@ -468,7 +1002,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -479,40 +1013,64 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
- },
- {
-  "name": "list_walking_routes",
-  "title": "Walking routes",
-  "description": "The names of the guided walking routes sold in the Eric's New York app. The result holds the route names and the app store links. The route itself (path, stops, texts) is a paid product and is not available here.",
-  "inputSchema": {
-   "properties": {
-    "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
-     "type": "string"
-    }
-   },
-   "type": "object"
   },
-  "annotations": {
-   "readOnlyHint": true,
-   "destructiveHint": false,
-   "idempotentHint": true,
-   "openWorldHint": false
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "new_york_weather",
-  "title": "New York weather",
-  "description": "The US National Weather Service forecast for New York City: day and night periods for up to 7 days with temperature in Fahrenheit and Celsius, a short description and the chance of rain. Pass a date (YYYY-MM-DD) for one day. When rain is likely the answer adds a rain plan from our own guides. Forecast text is in English, as the National Weather Service wrote it.",
+  "title": "Check the New York forecast",
+  "description": "Use this when the traveller asks what the weather will be like in New York on their dates, whether to expect rain, or what to do if it rains. It returns the US National Weather Service forecast for New York City: day and night periods for up to 7 days with temperature in Fahrenheit and Celsius, a short description and the chance of rain. Pass a date (YYYY-MM-DD) for one day; when rain is likely the answer adds a rain plan from our own guides. Pass rain_plan=true to get the rain plan whatever the forecast: our rain guide with its picture and up to 4 indoor places as cards. Forecast text is in English, as the National Weather Service wrote it. A result's url, image and ticket link are our own or carry our partner id. Do not use for dates beyond the 7-day forecast or for places outside New York City.",
   "inputSchema": {
    "properties": {
     "date": {
      "description": "Optional day to return, YYYY-MM-DD. Omit it for the whole forecast.",
      "type": "string"
     },
+    "rain_plan": {
+     "description": "Optional. true returns the rain plan (our rain guide with its picture and up to 4 indoor places) even when no rain is forecast.",
+     "type": "boolean"
+    },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -523,16 +1081,56 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": true
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "search_stayed_hotels",
-  "title": "Search stayed-at hotels",
-  "description": "Find New York hotels on Eric's stayed-at list, by hotel name or neighbourhood, each with his one-line verdict in English and when he last stayed. It is not a full hotel search: no prices or availability. Leave query empty to list some of them.",
+  "title": "Find hotels Eric has stayed in",
+  "description": "Use this when the traveller asks which New York hotels Eric has stayed in, or what he thought of one, by hotel name, neighbourhood or a word from his verdict (e.g. cheap). It returns hotels from Eric's stayed-at list, each with his one-line verdict in English and when he last stayed. It is not a full hotel search: no prices or availability, and an empty query returns a sample. Do not use to book or price a hotel room, or to find places to visit (use search_places).",
   "inputSchema": {
    "properties": {
     "query": {
-     "description": "Part of a hotel name or neighbourhood, e.g. \"Midtown\".",
+     "description": "Part of a hotel name, neighbourhood or verdict word, e.g. \"Midtown\" or \"cheap\".",
      "type": "string"
     },
     "limit": {
@@ -543,7 +1141,7 @@
      "type": "integer"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -554,12 +1152,52 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ],
+  "_meta": {
+   "ui": {
+    "resourceUri": "ui://resources/place-cards",
+    "visibility": [
+     "model",
+     "app"
+    ]
+   },
+   "openai/outputTemplate": "ui://resources/place-cards"
   }
  },
  {
   "name": "get_omny_card_info",
-  "title": "OMNY transit card",
-  "description": "Tells a traveller whether this site sells the OMNY contactless fare card for New York subway and local buses, and gives the link to this site's own OMNY page. Prices are returned only when include_prices is true, so set it only when the traveller asks what the card costs.",
+  "title": "Check OMNY card availability",
+  "description": "Use this when the traveller asks how to pay for the New York subway and local buses, or whether we sell the OMNY contactless fare card. It tells whether this site sells the OMNY card and gives the link to this site's own OMNY page. Prices are returned only when include_prices is true. Do not use for airport transfers (use calculate_transfer) or for the subway stops near a place (use nearest_subway).",
   "inputSchema": {
    "properties": {
     "include_prices": {
@@ -567,7 +1205,7 @@
      "type": "boolean"
     },
     "country": {
-     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Omit for this site's own answer.",
+     "description": "Optional. Answer from another country's own site, in its own language, currency and links. Accepted: GB = www.newyork.co.uk (en_GB), NL = www.newyork.nl (nl_NL), DE = www.newyorkcity.de (de_DE), FR = www.newyorkcity.fr (fr_FR), BR = www.visitenovayork.com.br (pt_BR), FI = www.newyork.fi (fi_FI), SE = www.newyork.se (sv_SE), IT = www.newyorkcity.it (it_IT), JP = www.newyork.jp (ja_JP), ES = www.nuevayork.es (es_ES), LATAM = www.nuevayork.com (es_419), CA = www.newyorkcity.ca (en_CA), AU = www.newyork.com.au (en_AU), NO = www.newyork.no (nb_NO), KR = www.newyork.kr (ko_KR), DK = www.newyorkcity.dk (da_DK). Use it only when the visitor writes in that country's language or asks for that country's site; an English question gets no country. Omit for this site's own answer.",
      "type": "string"
     }
    },
@@ -578,6 +1216,36 @@
    "destructiveHint": false,
    "idempotentHint": true,
    "openWorldHint": false
-  }
+  },
+  "icons": [
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-96x96.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "96x96"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/android-icon-192x192.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "192x192"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/ms-icon-310x310.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "310x310"
+    ]
+   },
+   {
+    "src": "https://www.newyork.co.uk/wp-content/themes/sage/resources/images/favicons/new-york/apple-icon-180x180.png",
+    "mimeType": "image/png",
+    "sizes": [
+     "180x180"
+    ]
+   }
+  ]
  }
 ]

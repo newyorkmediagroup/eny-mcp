@@ -10,7 +10,7 @@ Python 3 standard library only.
 
 Files: `plugin.json` and `mcp.json` (Agent Plugins format), `skill-meta.json` (feeds each skill's
 `agents/openai.yaml`), `schemas/` and `tools-list.json` (reference copies the validator checks against).
-`test_build.py` proves the built skills are byte-identical to `../skills/` (no patches).
+The `walking-routes-in-the-app` skill is not shipped to ChatGPT (`NOT_SHIPPED` in `build.py`): walking routes are a paid digital product in the app, and the directory allows commerce for physical goods only. `test_build.py` proves the built skills are byte-identical to `../skills/` (no patches).
 
 Each validator rule cites OpenAI's page and line (`SUB`, `ERR`, `GUI`, `SKL` in `validate.py`).
 Package metadata and build code live in `chatgpt/`. All shared skill content is edited only in `../skills/`

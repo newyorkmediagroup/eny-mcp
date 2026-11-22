@@ -2,7 +2,7 @@
 """Assemble the ChatGPT directory package for Eric's New York and validate it.
 
 Usage: python3 chatgpt/build.py   -> chatgpt/dist/erics-new-york-<version>.zip
-Shared skills in ../skills are copied verbatim, except dotfiles (editor and OS litter such as .DS_Store),
+Shared skills in ../skills (minus NOT_SHIPPED) are copied verbatim, except dotfiles (editor and OS litter such as .DS_Store),
 which are never packaged; only agents/openai.yaml is generated.
 """
 import json, shutil, sys, zipfile
@@ -13,6 +13,7 @@ REPO = HERE.parent
 DIST = HERE / "dist"
 
 FORBIDDEN_WORDS = ["Claude"]  # must be absent from the shared skills
+NOT_SHIPPED = {"walking-routes-in-the-app"}  # skills kept out of the ChatGPT package; they stay in ../skills/ for other plugins
 
 
 def yaml_str(s):
@@ -55,12 +56,12 @@ def assemble(out):
         shutil.copy(HERE / f, out / f)
     shutil.copy(REPO / ".claude-plugin" / "icon.png", out / "assets" / "icon.png")
 
-    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir())
+    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir() and p.name not in NOT_SHIPPED)
     for src in sources:
         shutil.copytree(src, out / "skills" / src.name, ignore=shutil.ignore_patterns(".*"))
     names = {p.name for p in (out / "skills").iterdir()}
-    if len(names) != 16:
-        sys.exit(f"build: expected 16 skills, found {len(names)}")
+    if len(names) != 15:
+        sys.exit(f"build: expected 15 skills, found {len(names)}")
 
     for f in sorted((out / "skills").rglob("*")):
         if f.is_file() and f.suffix == ".md":

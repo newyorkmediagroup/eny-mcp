@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "erics-new-york",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "New York City trip planning from Eric's New York, a travel guide by a local: Broadway shows and seats, attraction pass comparisons, airport transfers, events, itineraries, places, hotels Eric has stayed in, nearest subway stops and the weather forecast, each answer linked to its source page.",
   "author": {
     "name": "New York Media Group B.V.",
@@ -26,7 +26,7 @@
       "interface": {
         "displayName": "Eric's New York",
         "shortDescription": "Plan New York with a local",
-        "longDescription": "Eric's New York is a New York City travel guide by Eric, a local. It is for first- and second-time visitors. With this plugin, ChatGPT looks things up in the guide in the order a trip happens.\n\nBefore you go: a day-by-day itinerary; attraction passes compared with separate tickets for your group; which Broadway performances have seats on your date; events on your dates; hotels Eric has stayed in, with his verdict.\nArriving: airport transfer options; whether an OMNY fare card for the subway and buses can be sent to you before you travel.\nOn the day: places Eric recommends, the nearest subway stop to a sight, the weather forecast and a rain plan.\nWalking routes: ChatGPT can name Eric's routes. The routes themselves are in the Eric's New York app.\n\nHow it works: the plugin reads published information from Eric's New York. One tool, send_feedback, sends a short note to the publisher, and only when you ask. No sign-in is needed. Nothing is booked, bought or paid for in the chat: answers link to the page on our own site, or to a partner's page where the answer says so. Figures are indicative and shown in the stated currency. It covers New York City only. Answers can come from one of 16 country sites, in that country's language, currency and links.",
+        "longDescription": "Eric's New York is a New York City travel guide by Eric, a local. It is for first- and second-time visitors. With this plugin, ChatGPT looks things up in the guide in the order a trip happens.\n\nBefore you go: a day-by-day itinerary; attraction passes compared with separate tickets for your group; which Broadway performances have seats on your date; events on your dates; hotels Eric has stayed in, with his verdict.\nArriving: airport transfer options; whether an OMNY fare card for the subway and buses can be sent to you before you travel.\nOn the day: places Eric recommends, the nearest subway stop to a sight, the weather forecast and a rain plan.\n\nHow it works: the plugin reads published information from Eric's New York. One tool, send_feedback, sends a short note to the publisher, and only when you ask. No sign-in is needed. Nothing is booked, bought or paid for in the chat: answers link to the page on our own site, or to a partner's page where the answer says so. Figures are indicative and shown in the stated currency. It covers New York City only. Answers can come from one of 16 country sites, in that country's language, currency and links.",
         "developerName": "New York Media Group B.V.",
         "category": "Travel",
         "capabilities": [
@@ -51,7 +51,7 @@
       },
       "review": {
         "commerce": true,
-        "commerce_description": "The plugin takes no payment and has no cart or checkout. One tool, get_omny_card_info, tells the user whether our site sells the OMNY fare card, a physical card that we ship to the traveller, and gives the link to the page on our own domain where a purchase is completed. Other tools return links to pages on our own sites, where a visitor can also book Broadway tickets, attraction passes and airport transfers, and, where the answer says so, to a partner's page on which we may earn a commission (hotels, some events and tickets). One tool names walking routes that are sold in our mobile app and gives the app store links. No purchase is made, started or paid for in the chat.",
+        "commerce_description": "The plugin takes no payment and has no cart or checkout. One tool, get_omny_card_info, tells the user whether our site sells the OMNY fare card, a physical card that we ship to the traveller, and gives the link to the page on our own domain where a purchase is completed. Other tools return links to pages on our own sites, where a visitor can also book Broadway tickets, attraction passes and airport transfers, and, where the answer says so, to a partner's page on which we may earn a commission (hotels, some events and tickets). No purchase is made, started or paid for in the chat.",
         "test_cases": {
           "positive": [
             {
@@ -102,7 +102,7 @@
         }
       },
       "publication": {
-        "release_notes": "Initial release: 16 skills for planning a New York City trip with the Eric's New York guide."
+        "release_notes": "One skill removed: 15 skills, and the tool list is now 19 tools."
       }
     }
   }
