@@ -1,4 +1,4 @@
-import filecmp, tempfile, unittest
+import filecmp, json, tempfile, unittest
 from pathlib import Path
 
 import build
@@ -12,7 +12,8 @@ def relative_files(root):
 
 
 class OneSkillsSource(unittest.TestCase):
-    def test_built_skills_are_byte_identical(self):
+    def test_built_skills_are_verbatim_except_listed_edits(self):
+        edits = json.loads((build.HERE / "skill-edits.json").read_text(encoding="utf-8"))
         with tempfile.TemporaryDirectory() as tmp:
             out = build.assemble(Path(tmp) / "pkg")
             source = {p for p in relative_files(REPO / "skills") if p.parts[0] not in build.NOT_SHIPPED}
@@ -20,7 +21,28 @@ class OneSkillsSource(unittest.TestCase):
             self.assertTrue(built)
             self.assertEqual(source, built, "skills/ and the built skills list different files")
             for rel in built:
-                self.assertTrue(filecmp.cmp(REPO / "skills" / rel, out / "skills" / rel, shallow=False), f"{rel} differs from skills/")
+                if rel.as_posix() in edits:
+                    text = (REPO / "skills" / rel).read_text(encoding="utf-8")
+                    for e in edits[rel.as_posix()]:
+                        text = text.replace(e["old"], e["new"], 1)
+                    self.assertEqual((out / "skills" / rel).read_text(encoding="utf-8"), text, f"{rel} is not the source plus its listed edits")
+                else:
+                    self.assertTrue(filecmp.cmp(REPO / "skills" / rel, out / "skills" / rel, shallow=False), f"{rel} differs from skills/")
+
+    def test_edit_must_match_exactly_once(self):
+        path = "omny-card/SKILL.md"
+        for old in ("text that is not in the skill", "the"):
+            with self.subTest(old=old), tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit):
+                build.assemble(Path(tmp) / "pkg", {path: [{"old": old, "new": "x"}]})
+
+    def test_no_unprompted_social_or_newsletter_invitation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = build.assemble(Path(tmp) / "pkg")
+            plan = (out / "skills" / "plan-a-first-trip" / "SKILL.md").read_text(encoding="utf-8")
+            self.assertNotIn("follow Eric's New York on social", plan)
+            self.assertNotIn("join the newsletter", plan)
+            steps = [l.split(".")[0] for l in plan.splitlines() if l[:1].isdigit()]
+            self.assertEqual(steps, [str(i) for i in range(1, len(steps) + 1)])
 
     def test_dotfiles_are_not_packaged(self):
         probe = next(p for p in sorted((REPO / "skills").iterdir()) if p.is_dir()) / ".probe-dotfile"
