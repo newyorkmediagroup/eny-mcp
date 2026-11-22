@@ -68,6 +68,12 @@ class ValidateTests(unittest.TestCase):
     def test_app_json_added(self):
         self.assertFails("app", "forbidden_component", lambda r: (r / ".app.json").write_text("{}"))
 
+    def test_walking_routes_text_in_package(self):
+        def f(r):
+            p = r / "skills" / "omny-card" / "SKILL.md"
+            p.write_text(p.read_text() + "\nGuided Walking Routes are sold in the app.\n")
+        self.assertFails("walkroutes", "walking_routes_in_package", f)
+
     def test_tool_not_live_in_test_case(self):
         self.assertFails("tool", "tool_not_live",
                          lambda r: plugin(r, lambda d: d["extensions"]["com.openai"]["review"]["test_cases"]["positive"][0].update(tools_triggered="book_ticket")))

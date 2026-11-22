@@ -503,6 +503,11 @@ def validate(zip_path, submit=False, tools_path=TOOLS_DEFAULT):
                 if tok in tools: continue
                 if "_" in tok and tok.split("_")[0] in TOOL_VERBS:
                     err("tool_not_live", f"{r_} names tool `{tok}` which is not in the live tools list")
+    # walking routes are a paid app product and are not part of this package
+    for n_, b_ in data.items():
+        low = b_.lower()
+        if b"list_walking_routes" in low or b"walking-routes-in-the-app" in low or b"walking route" in low:
+            err("walking_routes_in_package", n_ + " mentions walking routes")
     return E, N, OWNER
 
 

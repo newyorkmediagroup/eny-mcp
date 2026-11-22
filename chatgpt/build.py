@@ -2,7 +2,7 @@
 """Assemble the ChatGPT directory package for Eric's New York and validate it.
 
 Usage: python3 chatgpt/build.py   -> chatgpt/dist/erics-new-york-<version>.zip
-Shared skills in ../skills are copied verbatim, except dotfiles (editor and OS litter such as .DS_Store),
+Shared skills in ../skills (minus NOT_SHIPPED) are copied verbatim apart from the text edits in skill-edits.json, except dotfiles (editor and OS litter such as .DS_Store),
 which are never packaged; only agents/openai.yaml is generated.
 """
 import json, shutil, sys, zipfile
@@ -13,6 +13,7 @@ REPO = HERE.parent
 DIST = HERE / "dist"
 
 FORBIDDEN_WORDS = ["Claude"]  # must be absent from the shared skills
+NOT_SHIPPED = {"walking-routes-in-the-app"}  # skills kept out of the ChatGPT package; they stay in ../skills/ for other plugins
 
 
 def yaml_str(s):
@@ -44,8 +45,24 @@ def openai_yaml(meta):
     )
 
 
-def assemble(out):
-    """Build the plugin root at `out` (created fresh)."""
+def apply_edits(out, edits):
+    """Apply {skill file: [{old, new}]} text edits to the copied skills; each `old` must occur exactly once."""
+    for rel, items in edits.items():
+        f = out / "skills" / rel
+        if not f.is_file():
+            sys.exit(f"build: skill-edits.json names {rel}, which is not a shipped skill file")
+        text = f.read_text(encoding="utf-8")
+        for e in items:
+            if text.count(e["old"]) != 1:
+                sys.exit(f"build: edit in {rel} must match exactly once, found {text.count(e['old'])}: {e['old'][:60]!r}")
+            text = text.replace(e["old"], e["new"])
+        f.write_text(text, encoding="utf-8")
+
+
+def assemble(out, edits=None):
+    """Build the plugin root at `out` (created fresh). `edits` defaults to chatgpt/skill-edits.json."""
+    if edits is None:
+        edits = json.loads((HERE / "skill-edits.json").read_text(encoding="utf-8"))
     out = Path(out)
     if out.exists():
         shutil.rmtree(out)
@@ -55,12 +72,13 @@ def assemble(out):
         shutil.copy(HERE / f, out / f)
     shutil.copy(REPO / ".claude-plugin" / "icon.png", out / "assets" / "icon.png")
 
-    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir())
+    sources = sorted(p for p in (REPO / "skills").iterdir() if p.is_dir() and p.name not in NOT_SHIPPED)
     for src in sources:
         shutil.copytree(src, out / "skills" / src.name, ignore=shutil.ignore_patterns(".*"))
+    apply_edits(out, edits)
     names = {p.name for p in (out / "skills").iterdir()}
-    if len(names) != 16:
-        sys.exit(f"build: expected 16 skills, found {len(names)}")
+    if not names or names & NOT_SHIPPED:
+        sys.exit(f"build: no skills, or a skill that is not shipped was copied: {sorted(names & NOT_SHIPPED)}")
 
     for f in sorted((out / "skills").rglob("*")):
         if f.is_file() and f.suffix == ".md":

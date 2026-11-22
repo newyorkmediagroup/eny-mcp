@@ -12,7 +12,6 @@
   "places-to-visit-eat-shop": {"display_name": "Places to visit, eat or shop", "short_description": "Places Eric recommends in New York"},
   "plan-a-first-trip": {"display_name": "Plan a first trip", "short_description": "Build a day-by-day New York itinerary"},
   "send-feedback": {"display_name": "Send feedback", "short_description": "Send a short note to the publisher on request"},
-  "walking-routes-in-the-app": {"display_name": "Walking routes in the app", "short_description": "Name Eric's routes; the routes are in the app"},
   "weather-and-rain-plan": {"display_name": "Weather and rain plan", "short_description": "Forecast and a plan for rainy days"},
   "whats-on-during-your-dates": {"display_name": "What is on during your dates", "short_description": "Events happening on your travel dates"}
 }
