@@ -77,8 +77,8 @@ def assemble(out, edits=None):
         shutil.copytree(src, out / "skills" / src.name, ignore=shutil.ignore_patterns(".*"))
     apply_edits(out, edits)
     names = {p.name for p in (out / "skills").iterdir()}
-    if len(names) != 15:
-        sys.exit(f"build: expected 15 skills, found {len(names)}")
+    if not names or names & NOT_SHIPPED:
+        sys.exit(f"build: no skills, or a skill that is not shipped was copied: {sorted(names & NOT_SHIPPED)}")
 
     for f in sorted((out / "skills").rglob("*")):
         if f.is_file() and f.suffix == ".md":

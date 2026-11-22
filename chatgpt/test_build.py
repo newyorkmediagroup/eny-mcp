@@ -61,7 +61,8 @@ class OneSkillsSource(unittest.TestCase):
             shipped = {p.name for p in (out / "skills").iterdir()}
             self.assertFalse(shipped & build.NOT_SHIPPED)
             self.assertEqual(shipped, {p.name for p in (REPO / "skills").iterdir() if p.is_dir()} - build.NOT_SHIPPED)
-            self.assertEqual(len(shipped), 15)
+            self.assertNotIn("walking-routes-in-the-app", shipped)
+            self.assertIn("plan-a-first-trip", shipped)
 
     def test_no_chatgpt_only_skills(self):
         self.assertFalse((build.HERE / "skills").exists())
