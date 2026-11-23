@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "erics-new-york",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "New York City trip planning from Eric's New York, a travel guide by a local: Broadway shows and seats, attraction pass comparisons, airport transfers, events, itineraries, places, hotels Eric has stayed in, nearest subway stops and the weather forecast, each answer linked to its source page.",
   "author": {
     "name": "New York Media Group B.V.",
@@ -76,7 +76,7 @@
               "description": "Day-by-day itinerary",
               "prompt": "Plan a 3-day itinerary for a first visit to New York from 4 to 6 May 2027.",
               "tools_triggered": "list_trips, get_trip",
-              "expected_behavior": "Lists Eric's itineraries, opens the one closest to three days or says which length is nearest, and presents its days with a link to the source page."
+              "expected_behavior": "Looks up Eric's itineraries (four to eight days), opens the nearest one, and builds a day-by-day plan for the three days from it and the other lookup tools, with links to the Eric's New York pages it used."
             },
             {
               "description": "OMNY card",
@@ -91,11 +91,11 @@
               "prompt": "Book two tickets for The Lion King tonight and pay with my saved card."
             },
             {
-              "description": "The plugin covers New York City only. It should say it does not cover other cities and not invent a Chicago plan.",
+              "description": "The plugin covers New York City only and has no Chicago content, so it is not the source of a Chicago plan. Any Chicago suggestions come from ChatGPT itself.",
               "prompt": "Plan me a weekend in Chicago."
             },
             {
-              "description": "The plugin has no account or order access. It should say so and point to the support page.",
+              "description": "The plugin has no account or order access. ChatGPT should say it cannot show or change orders through the plugin.",
               "prompt": "Show me my orders and change the date of my booking."
             }
           ]
